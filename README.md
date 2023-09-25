@@ -21,7 +21,7 @@ You can create a conda environment with the required packages by using this comm
 
 The database is a sqlite database. It is a database that uses a .db file to store its entries. No database server is
 needed.
-The database can be created by running the package **setup**
+The database can be created by running the module **setup**
 Running this does a few things:
 
 * creates a database with the name **app.db** in the directory specified in **conf.py**
