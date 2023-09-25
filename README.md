@@ -68,6 +68,10 @@ Thus, the webapp provides functionality for
 signing up and login in. Sign up and login page can be accessed via links on the home page.
 Additionally, admins can activate, deactivate or delete users completely.
 
+The default credentials for the admin user are:
+* mail: admin@refdb.at
+* password: surfaceenhanced
+
 ### Ressource administration
 
 Resources which can be used for measuring a compound, can and should be 
