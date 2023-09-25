@@ -41,8 +41,7 @@ It can be started using the following command\
 
 By default the programm creates a sqlite database file called **app.db** and stores spectra in a directory called *
 *appdata**.
-However this can be changed in the file **config.py** by changing the values of the variables **DATABASE** and **APPDATA
-**.
+However this can be changed in the file **config.py** by changing the values of the variables **DATABASE** and **APPDATA**.
 
 ## Export and Backup of the data
 
