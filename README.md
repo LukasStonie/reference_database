@@ -27,8 +27,8 @@ Running this does a few things:
 * creates a database with the name **app.db** in the directory specified in **conf.py**
 * adds all the required tables to the database (see models.py)
 * adds the default user groups **admin** and **user** to the database
-* adds a default admin user to the database
-* adds the three default spectra**types to the database
+* adds a **default admin user** to the database
+* adds the three **default spectra_types** to the database
 
 You can run setup with the following command:\
 `python -m setup`
@@ -44,9 +44,9 @@ It can be started using the following command\
 When executing the start, make sure that the correct conda environment is activated.
 
 
-By default the programm creates a sqlite database file called **app.db** and stores spectra in a directory called *
+By default, the programm creates a sqlite database file called **app.db** and stores spectra in a directory called *
 *appdata**.
-However this can be changed in the file **config.py** by changing the values of the variables **DATABASE** and **APPDATA**.
+However, this can be changed in the file **config.py** by changing the values of the variables **DATABASE** and **APPDATA**.
 
 ## Export and Backup of the data
 
