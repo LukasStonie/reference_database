@@ -33,11 +33,16 @@ Running this does a few things:
 You can run setup with the following command:\
 `python -m setup`
 
+When executing the setup, make sure that the correct conda environment is activated.
+
 ### Starting the application
 
 The entry point of the application is the file start.py\
 It can be started using the following command\
 `python -m start`
+
+When executing the start, make sure that the correct conda environment is activated.
+
 
 By default the programm creates a sqlite database file called **app.db** and stores spectra in a directory called *
 *appdata**.
