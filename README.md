@@ -21,10 +21,10 @@ You can create a conda environment with the required packages by using this comm
 
 The database is a sqlite database. It is a database that uses a .db file to store its entries. No database server is
 needed.
-The database can be created by running the module **setup**
+The database can be created by running the module **setup**.
 Running this does a few things:
 
-* creates a database with the name **app.db** in the directory specified in **conf.py**
+* creates a database with the name **app.db** in the directory specified in **conf.py** (DATABASE)
 * adds all the required tables to the database (see models.py)
 * adds the default user groups **admin** and **user** to the database
 * adds a **default admin user** to the database
@@ -44,8 +44,8 @@ It can be started using the following command\
 When executing the start, make sure that the correct conda environment is activated.
 
 
-By default, the programm creates a sqlite database file called **app.db** and stores spectra in a directory called *
-*appdata**.
+By default, the programm creates a sqlite database file called **app.db** and stores spectra in a directory called 
+**appdata**.
 However, this can be changed in the file **config.py** by changing the values of the variables **DATABASE** and **APPDATA**.
 
 ## Export and Backup of the data
@@ -55,8 +55,8 @@ simply copying the database file.
 In addition to that, the directory **appdata** needs to be
 copied as well, because it contains the spectra.
 
-When moving the application to a new location, the database file and the appdata directory 
-both need to in the directory specified in the **config.py** file. By default this is the root directory.
+When moving the application to a new location, the database file and the appdata directory
+both need to be in the directories specified in the **config.py** file. By default, this is the root directory.
 
 
 ## Interaction
@@ -65,12 +65,15 @@ both need to in the directory specified in the **config.py** file. By default th
 
 The database only allows authenticated users to access and alter its data. 
 Thus, the webapp provides functionality for
-signing up and login in. Sign up and login page can be accessed via links on the home page.
-Additionally, admins can activate, deactivate or delete users completely.
+signing up and login in. The sign-up and login pages can be accessed via links on the home page.
+Additionally, admins can activate, deactivate or delete users completely. For that you have to navigate 
+to WEBADDRESS/admin in the browser.
 
 The default credentials for the admin user are:
 * mail: admin@refdb.at
 * password: surfaceenhanced
+
+It is recommended to create a new, custom admin user and delete the default admin user.
 
 ### Ressource administration
 
