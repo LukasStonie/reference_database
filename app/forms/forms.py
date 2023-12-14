@@ -7,7 +7,7 @@ from flask_wtf.file import FileField, FileRequired
 from wtforms import (StringField, TextAreaField, IntegerField, BooleanField,
                      RadioField, PasswordField, SelectField, SelectMultipleField, SubmitField, FieldList, FormField)
 from wtforms.fields.html5 import EmailField, DecimalField
-from wtforms.validators import InputRequired, Length, Email, EqualTo
+from wtforms.validators import InputRequired, Length, Email, EqualTo, Optional
 from app.extensions import db
 
 
@@ -259,7 +259,6 @@ class IntensityForm(FlaskForm):
                               validators=[InputRequired(message='Bitte geben Sie eine Beschreibung an')])
 
 
-
 class PeakForm(FlaskForm):
     """
         WTForms class for the peaks form
@@ -280,3 +279,25 @@ class QueryForm(FlaskForm):
     """
     tolerance = DecimalField("Toleranz", default=10.0,
                              validators=[InputRequired(message="Bitte geben Sie einen Toleranzbereich an.")])
+
+
+class RamanBandForm(FlaskForm):
+    wavenumber = DecimalField("Wellenzahl ", validators=[InputRequired(message="Bitte geben Sie eine Wellenzahl an.")])
+    bandType = StringField("Schwingungsart",
+                           validators=[InputRequired(message="Bitte geben Sie eine Schwingungsart an.")])
+    bandCategory = SelectField("Kategorie", validate_choice=False,
+                               validators=[InputRequired(message="Bitte geben Sie eine Kategorie an.")])
+    bandAmplitude = SelectField("Intensität", validate_choice=False,
+                                validators=[InputRequired(message="Bitte geben Sie eine Amplitude an.")])
+    author = StringField("Autor")
+    doiLink = StringField("DOI")
+
+
+class RamanBandCategoryForm(FlaskForm):
+    name = StringField("Kategorie", validators=[InputRequired(message="Bitte geben Sie eine Kategorie an.")])
+
+
+class RamanBandQueryForm(FlaskForm):
+    wavenumber = DecimalField("Wellenzahl", validators=[Optional()])
+    bandCategory = SelectField("Kategorie", validate_choice=False,validators=[Optional()] )
+    bandType = StringField("Schwingungsart", validators=[Optional()])

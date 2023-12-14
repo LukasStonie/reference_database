@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-3 content">
+
+    {% include 'includes/backToStart.html' %}
+    {% include 'includes/errors.html' %}
+    <div class="row">
+        <div class="col-12 col-md-6 d-flex align-items-center justify-content-start">
+            <h1>Übersicht <b><em>Raman-Bänder Kategorien</em></b></h1>
+        </div>
+        <div class="col-12 col-md-6 d-flex align-items-center justify-content-start justify-content-md-end">
+            <a type="button" class="btn btn-outline-success btn-sm" href="{{ url_for('ramanbands_categories.new') }}"><i
+                    class="bi bi-plus-lg"></i>
+                Neue Kategorie erstellen
+            </a>
+        </div>
+    </div>
+    {% if categoires|length<=0 %}
+    <h4>Es sind noch keine Kategorien hinterlegt</h4>
+    {% else %}
+
+    <table class="table table-fixed">
+        <thead>
+        <tr>
+            <th scope="col">Kategorie</th>
+            <th>Aktionen</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for category in categoires %}
+
+            <tr>
+                <td>{{ category.name }}</td>
+                <td>
+                    <a type="button" class="btn btn-outline-primary btn-sm"
+                       href="{{ url_for('ramanbands_categories.edit', category_id=category.id) }}"><i class="bi bi-pencil-fill"></i>
+                        Bearbeiten</a>
+                    <a type="button" class="btn btn-outline-danger btn-sm"
+                       href="{{ url_for('ramanbands_categories.delete', category_id=category.id) }}"><i
+                            class="bi bi-trash-fill"></i>
+                        Löschen</a>
+                </td>
+            </tr>
+
+
+        {% endfor %}
+    </table>
+    {% endif %}
+</div>
+{% endblock %}

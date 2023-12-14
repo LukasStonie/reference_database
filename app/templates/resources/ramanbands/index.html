@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-3 content">
+
+    {% include 'includes/backToStart.html' %}
+    {% include 'includes/errors.html' %}
+    <div class="row">
+        <div class="col-12 col-md-6 d-flex align-items-center justify-content-start">
+            <h1>Übersicht <b><em>Raman-Bänder</em></b></h1>
+        </div>
+        <div class="col-12 col-md-6 d-flex align-items-center justify-content-start justify-content-md-end">
+            <a type="button" class="btn btn-outline-success btn-sm" href="{{ url_for('ramanband.new') }}"><i
+                    class="bi bi-plus-lg"></i>
+                Neues Band erstellen
+            </a>
+        </div>
+    </div>
+    {% if bands|length<=0 %}
+    <h4>Es sind noch keine Bänder hinterlegt</h4>
+    {% else %}
+
+    <table class="table table-fixed">
+        <thead>
+        <tr>
+            <th scope="col">Wellenzahl</th>
+            <th>Schwingungsart</th>
+            <th>Kategorie</th>
+            <th>Intensität</th>
+            <th>DOI</th>
+            <th>Aktionen</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for band in bands %}
+
+            <tr>
+                <td>{{ band.wavenumber }}</td>
+                <td>{{ band.bandAssignment.bandType }}</td>
+                <td>{{ band.bandAssignment.bandCategory.name }}</td>
+                <td>{{ band.bandAssignment.bandAmplitude.description }}</td>
+                <td> <a href="{{ band.bandAssignment.doiLink }}" target="_blank">Öffnen</a></td>
+                <td>
+                    <a type="button" class="btn btn-outline-primary btn-sm my-1"
+                       href="{{ url_for('ramanband.edit', band_id=band.id) }}"><i class="bi bi-pencil-fill"></i>
+                        Bearbeiten</a>
+                    <a type="button" class="btn btn-outline-danger btn-sm my-1"
+                       href="{{ url_for('ramanband.delete', band_id=band.id) }}"><i
+                            class="bi bi-trash-fill"></i>
+                        Löschen</a>
+                </td>
+            </tr>
+
+        {% endfor %}
+    </table>
+    {% endif %}
+</div>
+{% endblock %}

@@ -45,6 +45,28 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url_for('query.query') }}">Abfragen</a>
                 </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                       aria-expanded="false">
+                        Wellenzahl Bibliothek
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a class="dropdown-item" href="{{ url_for('ramanband.index') }}">Raman-Bänder</a>
+                        </li>
+
+                        <li><a class="dropdown-item" href="{{ url_for('ramanbands_categories.index') }}">Bänder
+                            Kategorien</a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{{ url_for('ramanband.query') }}">Suche</a>
+                        </li>
+                    </ul>
+
+                </li>
 
             </ul>
         {% endif %}

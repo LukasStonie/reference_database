@@ -3,7 +3,7 @@ from werkzeug.security import generate_password_hash
 
 from app import create_app
 from app import db
-from app.models.model import User, SpectrumType, Group
+from app.models.model import User, SpectrumType, Group, Intensity
 
 
 def create_admin():
@@ -81,6 +81,32 @@ def create_spectrum_types():
         print("Error while creating spectrum types")
         print(e)
 
+def create_intensities():
+    try:
+        # create intensities very weak, weak, medium, strong, very strong
+        very_weak = Intensity(shorthand='vw', description='very weak')
+        db.session.add(very_weak)
+
+        weak = Intensity(shorthand='w', description='weak')
+        db.session.add(weak)
+
+        medium = Intensity(shorthand='m', description='medium')
+        db.session.add(medium)
+
+        strong = Intensity(shorthand='s', description='strong')
+        db.session.add(strong)
+
+        very_strong = Intensity(shorthand='vs', description='very strong')
+        db.session.add(very_strong)
+
+        db.session.commit()
+        print("Intensities created")
+    except sqlalchemy.exc.IntegrityError:
+        print("tried to create intensities, but at least one of them already exist")
+    except Exception as e:
+        print("Error while creating intensities")
+        print(e)
+
 
 def run_setup():
     """
@@ -94,6 +120,7 @@ def run_setup():
         create_user_groups()
         create_admin()
         create_spectrum_types()
+        create_intensities()
 
 
 if __name__ == '__main__':

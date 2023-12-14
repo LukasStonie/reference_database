@@ -524,6 +524,40 @@ class Compound(Base):
         return f'<Compound "{self.name}">'
 
 
+class RamanBands(Base):
+    __tablename__ = 'raman_bands'
+
+    id = Column(Integer, primary_key=True)
+    wavenumber = Column(Float, nullable=False)
+    bandAssignmentId = Column(Integer, ForeignKey('raman_band_assignments.id'), nullable=False)
+
+    bandAssignment = relationship("RamanBandAssignment", backref="raman_bands")
+
+
+class RamanBandAssignment(Base):
+    __tablename__ = 'raman_band_assignments'
+    id = Column(Integer, primary_key=True)
+    bandType = Column(String(200), nullable=False)
+    bandCategoryId = Column(Integer, ForeignKey('raman_band_categories.id'), nullable=False)
+    author = Column(String(200), nullable=True)
+    doiLink = Column(String(400), nullable=True)
+    bandAmplitudeId = Column(Integer, ForeignKey('intensities.id'), nullable=False)
+
+    # spectrum = relationship("Spectrum", backref="peaks",)
+    bandAmplitude = relationship("Intensity", backref="raman_band_assignments")
+
+    bandCategory = relationship("RamanBandCategory", backref="raman_band_assignments")
+
+
+class RamanBandCategory(Base):
+    __tablename__ = 'raman_band_categories'
+    id = Column(Integer, primary_key=True)
+    name = Column(String(200), nullable=False)
+
+    __table_args__ = (
+        UniqueConstraint('name', name='u_name'),
+    )
+
 with app.create_app().app_context():
     # Base.metadata.drop_all(app.db.engine)
     Base.metadata.create_all(app.db.engine)

@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container mt-3 content">
+
+        {% include 'includes/backToStart.html' %}
+        {% include 'includes/errors.html' %}
+
+        <h1>Suchen <b><em>Raman-Band</em></b></h1>
+        <form method="POST" novalidate>
+            {{ form.csrf_token }}
+            <div class="row">
+                <div class="col-12 col-md-4 mb-3">
+                    {{ form.wavenumber.label(class="form-label") }}
+                    {{ form.wavenumber(class="form-control", placeholder="1260") }}
+                    {% if form.wavenumber.errors %}
+                        <div class="alert alert-danger my-3" role="alert">
+                            {% for error in form.wavenumber.errors %}
+                                <p class="mb-0">
+                                    {{ error }}
+                                </p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="col-12 col-md-4 mb-3">
+                    {{ form.bandType.label(class="form-label") }}
+                    {{ form.bandType(class="form-control", placeholder="CH2") }}
+                    {% if form.bandType.errors %}
+                        <div class="alert alert-danger my-3" role="alert">
+                            {% for error in form.bandType.errors %}
+                                <p class="mb-0">
+                                    {{ error }}
+                                </p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+
+                <div class="col-12 col-md-4 mb-3">
+                    {{ form.bandCategory.label(class="form-label") }}
+                    {{ form.bandCategory(class="form-control") }}
+                    {% if form.bandCategory.errors %}
+                        <div class="alert alert-danger my-3" role="alert">
+                            {% for error in form.bandCategory.errors %}
+                                <p class="mb-0">
+                                    {{ error }}
+                                </p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+
+            </div>
+            <button type="submit" class="btn btn-primary">Suche starten</button>
+        </form>
+        {% if not initial and bands|length == 0%}
+            <hr>
+            <div class="mt-1">
+                <p>Es wurden keine Ergebnisse gefunden.</p>
+            </div>
+        {% endif %}
+        {% if bands|length>0 %}
+            <hr>
+            <h2 class="mt-1">Ergebnisse</h2>
+            <table class="table table-striped table-hover table-fixed">
+                <thead>
+                <tr>
+                    <th scope="col">Wellenzahl</th>
+                    <th scope="col">Schwingungsart</th>
+                    <th scope="col">Kategorie</th>
+                    <th scope="col">Author</th>
+                    <th scope="col">DOI</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                {% for band in bands %}
+                    <tr>
+                        <td>{{ band.wavenumber }}</td>
+                        <td>{{ band.bandAssignment.bandType }}</td>
+                        <td>{{ band.bandAssignment.bandCategory.name }}</td>
+                        <td>{{ band.bandAssignment.author }}</td>
+                        <td><a href="{{ band.bandAssignment.doiLink }}" target="_blank">Öffnen</a></td>
+
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+    </div>
+{% endblock %}
