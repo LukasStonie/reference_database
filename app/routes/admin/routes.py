@@ -145,6 +145,9 @@ def deactivate(user_id):
         if not user.active:
             flash('User ist bereits deaktiviert', 'danger')
             return redirect(url_for('admin.index'))
+        if user.id is current_user.id:
+            flash('Sie können sich nicht selbst deaktivieren', 'danger')
+            return redirect(url_for('admin.index'))
         user.active = False
         db.session.commit()
         flash('User wurde deaktiviert', 'success')
@@ -168,6 +171,9 @@ def delete(user_id):
     """
     try:
         user = db.session.query(User).filter(User.id == user_id).first()
+        if user.id is current_user.id:
+            flash('Sie können sich nicht selbst deaktivieren', 'danger')
+            return redirect(url_for('admin.index'))
         db.session.delete(user)
         db.session.commit()
         flash('User wurde gelöscht', 'success')
