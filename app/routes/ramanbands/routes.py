@@ -1,6 +1,7 @@
 import sqlalchemy.exc
 from flask import render_template, request, url_for, flash, redirect
 from flask_login import login_required, current_user
+from sqlalchemy import desc
 
 from app.forms.forms import RamanBandForm, RamanBandQueryForm
 from app.routes.ramanbands import bp
@@ -11,10 +12,8 @@ from app.extensions import db
 @bp.route('/')
 @login_required
 def index():
-    bands = db.session.query(RamanBands).all()
-    print(bands)
-    for b in bands:
-        print(b.bandAssignment.bandType)
+    bands = db.session.query(RamanBands).order_by(RamanBands.wavenumber).all()
+
     return render_template('resources/ramanbands/index.html', bands=bands)
 
 
@@ -245,6 +244,6 @@ def query_post():
         if bandCategory != '0':  # 0 is the value for "all"
             queryfilter = queryfilter.filter(RamanBandAssignment.bandCategoryId == bandCategory)
 
-        bands = queryfilter.all()
+        bands = queryfilter.order_by(RamanBands.wavenumber).all()
 
         return render_template('resources/ramanbands/query.html', form=form, bands=bands, initial=False)

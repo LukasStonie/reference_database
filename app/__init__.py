@@ -94,9 +94,9 @@ def create_app(config_class=Config):
     app.register_blueprint(query_bp, url_prefix='/query')
 
     from app.routes.ramanbands import bp as ramanbands_bp
-    app.register_blueprint(ramanbands_bp, url_prefix='/ramanbands')
+    app.register_blueprint(ramanbands_bp, url_prefix='/ramanbanden')
 
     from app.routes.ramanbands_categories import bp as ramanband_categories_bp
-    app.register_blueprint(ramanband_categories_bp, url_prefix='/ramanband_kategorien')
+    app.register_blueprint(ramanband_categories_bp, url_prefix='/ramanbanden_kategorien')
 
     return app
