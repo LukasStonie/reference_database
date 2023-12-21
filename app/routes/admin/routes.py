@@ -172,7 +172,7 @@ def delete(user_id):
     try:
         user = db.session.query(User).filter(User.id == user_id).first()
         if user.id is current_user.id:
-            flash('Sie können sich nicht selbst deaktivieren', 'danger')
+            flash('Sie können sich nicht selbst löschen', 'danger')
             return redirect(url_for('admin.index'))
         db.session.delete(user)
         db.session.commit()
