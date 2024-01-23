@@ -17,6 +17,21 @@ The file **requirements.txt** holds the required packages for the conda environm
 You can create a conda environment with the required packages by using this command:\
 `conda create --name refdb --file requirements.txt`
 
+### Venv
+
+Venv is a tool for managing dependencies and virtual environments. It is part of the python standard library and thus uses pip as a package manager.
+The file **requirements_pip.txt** holds the required packages for the venv\
+Please make sure that you have venv installed before proceeding.\
+You can create a venv with the name refdb by using this command:\
+`virtualenv refdb`\
+\
+Afterwards, you can activate the venv with this command:\
+`source refdb/bin/activate`\
+\
+Finally, you can install the required packages with this command:\
+`pip install -r requirements_pip.txt`
+
+
 ### Database
 
 The database is a sqlite database. It is a database that uses a .db file to store its entries. No database server is
