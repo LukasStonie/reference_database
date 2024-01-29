@@ -48,7 +48,7 @@ Running this does a few things:
 You can run setup with the following command:\
 `python -m setup`
 
-When executing the setup, make sure that the correct conda environment is activated.
+When executing the setup, make sure that the correct conda (or virtual) environment is activated.
 
 ### Starting the application
 
