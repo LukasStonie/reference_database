@@ -44,6 +44,7 @@ Running this does a few things:
 * adds the default user groups **admin** and **user** to the database
 * adds a **default admin user** to the database
 * adds the three **default spectra_types** to the database
+* add five **default intensities** to the database
 
 You can run setup with the following command:\
 `python -m setup`
