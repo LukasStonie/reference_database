@@ -1,4 +1,5 @@
-from flask import Flask
+import babel
+from flask import Flask, request, g
 from config import Config
 from app.extensions import db
 from flask_babel import Babel
@@ -40,6 +41,12 @@ def create_app(config_class=Config):
     @login_manager.user_loader
     def load_user(user_id):
         return db.session.query(User).get(int(user_id))
+
+    @babel.localeselector
+    def get_locale():
+        if not g.get('lang_code', None):
+            g.lang_code = request.accept_languages.best_match(app.config['LANGUAGES'])
+        return g.lang_code
 
     # Register blueprints here
     from app.routes.main import bp as main_bp

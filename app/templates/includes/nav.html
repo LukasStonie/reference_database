@@ -71,6 +71,16 @@
             </ul>
         {% endif %}
     </div>
+    <!-- Example single danger button -->
+    <div class="btn-group me-3">
+        <button type="button" class="btn btn-outline-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            Sprache
+        </button>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{{ url_for(request.endpoint, lang_code='de') }}">de</a></li>
+            <li><a class="dropdown-item" href="{{ url_for(request.endpoint, lang_code='en') }}">en</a></li>
+        </ul>
+    </div>
     <!-- check if user is authenticated/logged in -->
     <!-- if yes show "Abmelden" -->
     {% if current_user.is_authenticated %}
@@ -79,4 +89,6 @@
     {% else %}
         <a class="nav-link" href="{{ url_for('auth.login') }}">Anmelden</a>
     {% endif %}
+
+
 </nav>
