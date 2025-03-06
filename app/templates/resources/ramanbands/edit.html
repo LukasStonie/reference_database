@@ -7,9 +7,9 @@
            style="--bs-icon-link-transform: translate3d(-.125rem, 0, 0); --bs-link-color-rgb: 97,100,102;"
            href="{{ url_for('ramanband.index') }}">
             <i class="bi bi-arrow-left mb-auto"></i>
-            Zurück
+            {{ _('Zurück')}}
         </a>
-        <h1>Bearbeiten <b><em>Raman-Bande</em></b></h1>
+        <h1>{{ _('Bearbeiten') }} <b><em>{{ _('Raman-Bande') }}</em></b></h1>
         {% include 'includes/errors.html' %}
         <form method="POST" novalidate>
             {{ form.csrf_token }}
@@ -29,7 +29,7 @@
                 </div>
                 <div class="col-12 col-md-6 mb-3">
                     {{ form.bandType.label(class="form-label") }}
-                    {{ form.bandType(class="form-control", placeholder="CH2 Schwingung") }}
+                    {{ form.bandType(class="form-control", placeholder=_("CH2 Schwingung")) }}
                     {% if form.bandType.errors %}
                         <div class="alert alert-danger my-3" role="alert">
                             {% for error in form.bandType.errors %}
@@ -58,7 +58,7 @@
                 </div>
                 <div class="col-12 col-md-6 mb-3">
                     {{ form.bandAmplitude.label(class="form-label") }}
-                    {{ form.bandAmplitude(class="form-control", placeholder="CH2 Schwingung") }}
+                    {{ form.bandAmplitude(class="form-control", placeholder=_("CH2 Schwingung")) }}
                     {% if form.bandAmplitude.errors %}
                         <div class="alert alert-danger my-3" role="alert">
                             {% for error in form.bandAmplitude.errors %}
@@ -74,7 +74,7 @@
             <div class="row">
                 <div class="col-12 col-md-6 mb-3">
                     {{ form.author.label(class="form-label") }}
-                    {{ form.author(class="form-control", placeholder="Max Mustermann") }}
+                    {{ form.author(class="form-control", placeholder=_("Max Mustermann")) }}
                     {% if form.author.errors %}
                         <div class="alert alert-danger my-3" role="alert">
                             {% for error in form.author.errors %}
@@ -87,7 +87,7 @@
                 </div>
                 <div class="col-12 col-md-6 mb-3">
                     {{ form.doiLink.label(class="form-label") }}
-                    {{ form.doiLink(class="form-control", placeholder=" https://doi.org/10.1080/14729679.2018.1507831   ") }}
+                    {{ form.doiLink(class="form-control", placeholder=" https://doi.org/10.1080/14729679.2018.1507831") }}
                     {% if form.doiLink.errors %}
                         <div class="alert alert-danger my-3" role="alert">
                             {% for error in form.doiLink.errors %}
@@ -99,7 +99,7 @@
                     {% endif %}
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary">Speichern</button>
+            <button type="submit" class="btn btn-primary">{{ _('Speichern') }}</button>
         </form>
     </div>
 {% endblock %}

@@ -1,13 +1,17 @@
 """
     Forms Module
 """
+from datetime import datetime
 
+from flask import g
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileRequired
 from wtforms import (StringField, TextAreaField, IntegerField, BooleanField,
-                     RadioField, PasswordField, SelectField, SelectMultipleField, SubmitField, FieldList, FormField)
+                     RadioField, PasswordField, SelectField, SelectMultipleField, SubmitField, FieldList, FormField,
+                     DateField)
 from wtforms.fields.html5 import EmailField, DecimalField
 from wtforms.validators import InputRequired, Length, Email, EqualTo, Optional
+from flask_babel import lazy_gettext as _l
 from app.extensions import db
 
 
@@ -27,14 +31,14 @@ class SignupForm(FlaskForm):
         password_repeat: PasswordField, required, min 8, max 60
     """
 
-    firstname = StringField('Vorname', validators=[InputRequired(), Length(min=2, max=45)])
-    lastname = StringField('Nachname', validators=[InputRequired(), Length(min=2, max=60)])
-    email = EmailField('E-Mail', validators=[InputRequired(), Length(min=2, max=60), Email()])
-    password = PasswordField('Passwort', validators=[
+    firstname = StringField(_l('Vorname'), validators=[InputRequired(), Length(min=2, max=45)])
+    lastname = StringField(_l('Nachname'), validators=[InputRequired(), Length(min=2, max=60)])
+    email = EmailField(_l('E-Mail'), validators=[InputRequired(), Length(min=2, max=60), Email()])
+    password = PasswordField(_l('Passwort'), validators=[
         InputRequired(),
         Length(min=8, max=60),
-        EqualTo('password_repeat', message='Passwörter stimmen nicht überein')])
-    password_repeat = PasswordField('Passwort wiederholen',
+        EqualTo('password_repeat', message=_l('Passwörter stimmen nicht überein'))])
+    password_repeat = PasswordField(_l('Passwort wiederholen'),
                                     validators=[InputRequired(), Length(min=8, max=60)])
 
 
@@ -47,8 +51,8 @@ class LoginForm(FlaskForm):
 
         password: PasswordField, required, min 8, max 60
     """
-    email = EmailField('E-Mail', validators=[InputRequired(), Length(min=2, max=60), Email()])
-    password = PasswordField('Passwort', validators=[InputRequired(), Length(min=8, max=60)])
+    email = EmailField(_l('E-Mail'), validators=[InputRequired(), Length(min=2, max=60), Email()])
+    password = PasswordField(_l('Passwort'), validators=[InputRequired(), Length(min=8, max=60)])
 
 
 class LensesForm(FlaskForm):
@@ -60,9 +64,12 @@ class LensesForm(FlaskForm):
 
         numerical_aperture: IntegerField, required
     """
-    zoom = IntegerField('Zoom', validators=[InputRequired(message="Bitte geben Sie eine Vergößerung ein")])
-    numerical_aperture = IntegerField('Numerische Apertur',
-                                      validators=[InputRequired(message="Bitte geben Sie eine numerische Apertur ein")])
+    zoom = IntegerField(_l('Zoom'), validators=[InputRequired(message=_l("Bitte geben Sie eine Vergößerung ein"))])
+    numerical_aperture = IntegerField(_l('Numerische Apertur'),
+                                      validators=[
+                                          InputRequired(message=_l("Bitte geben Sie eine numerische Apertur ein"))])
+    print("lenses form")
+    print(numerical_aperture)
 
 
 class LasersForm(FlaskForm):
@@ -72,8 +79,8 @@ class LasersForm(FlaskForm):
     Attributes:
         wavelength: IntegerField, required
     """
-    wavelength = IntegerField('Wellenlänge [nm]',
-                              validators=[InputRequired(message='Bitte geben Sie eine Wellenlänge an')])
+    wavelength = IntegerField(_l('Wellenlänge [nm]'),
+                              validators=[InputRequired(message=_l('Bitte geben Sie eine Wellenlänge an'))])
 
 
 class AperturesForm(FlaskForm):
@@ -83,7 +90,7 @@ class AperturesForm(FlaskForm):
     Attributes:
         size: IntegerField, required
     """
-    size = IntegerField('Größe [µm]', validators=[InputRequired(message='Bitte geben Sie eine Größe an')])
+    size = IntegerField(_l('Größe [µm]'), validators=[InputRequired(message=_l('Bitte geben Sie eine Größe an'))])
 
 
 class SlidesForm(FlaskForm):
@@ -93,7 +100,7 @@ class SlidesForm(FlaskForm):
     Attributes:
         name: StringField, required
     """
-    name = StringField('Bezeichnung', validators=[InputRequired(message='Bitte geben Sie eine Bezeichnung an')])
+    name = StringField(_l('Bezeichnung'), validators=[InputRequired(message=_l('Bitte geben Sie eine Bezeichnung an'))])
 
 
 class SpectralRangesForm(FlaskForm):
@@ -106,8 +113,8 @@ class SpectralRangesForm(FlaskForm):
         end: IntegerField, required
     """
     start = IntegerField(label="Start [cm<sup>-1</sup>]",
-                         validators=[InputRequired(message='Bitte geben Sie einen Startwert an')])
-    end = IntegerField('Ende [cm^-1]', validators=[InputRequired(message='Bitte geben Sie einen Endwert an')])
+                         validators=[InputRequired(message=_l('Bitte geben Sie einen Startwert an'))])
+    end = IntegerField(_l('Ende [cm^-1]'), validators=[InputRequired(message=_l('Bitte geben Sie einen Endwert an'))])
 
 
 class ResolutionsForm(FlaskForm):
@@ -117,7 +124,8 @@ class ResolutionsForm(FlaskForm):
     Attributes:
         description: IntegerField, required
     """
-    description = StringField('Bezeichnung', validators=[InputRequired(message='Bitte geben Sie eine Bezeichnung an')])
+    description = StringField(_l('Bezeichnung'),
+                              validators=[InputRequired(message=_l('Bitte geben Sie eine Bezeichnung an'))])
 
 
 class SpectralTypesForm(FlaskForm):
@@ -127,7 +135,8 @@ class SpectralTypesForm(FlaskForm):
     Attributes:
         description: StringField, required
     """
-    description = StringField('Bezeichnung', validators=[InputRequired(message='Bitte geben Sie eine Bezeichnung an')])
+    description = StringField(_l('Bezeichnung'),
+                              validators=[InputRequired(message=_l('Bitte geben Sie eine Bezeichnung an'))])
 
 
 class PreprocessingStepsForm(FlaskForm):
@@ -137,7 +146,7 @@ class PreprocessingStepsForm(FlaskForm):
     Attributes:
         name: StringField, required
     """
-    name = StringField('Bezeichnung', validators=[InputRequired(message='Bitte geben Sie eine Bezeichnung an')])
+    name = StringField(_l('Bezeichnung'), validators=[InputRequired(message=_l('Bitte geben Sie eine Bezeichnung an'))])
 
 
 class SubstratesForm(FlaskForm):
@@ -149,8 +158,8 @@ class SubstratesForm(FlaskForm):
 
         instructions: FileField, optional
     """
-    name = StringField('Bezeichnung', validators=[InputRequired(message='Bitte geben Sie eine Bezeichnung an')])
-    instructions = FileField('Anleitung', validators=[])
+    name = StringField(_l('Bezeichnung'), validators=[InputRequired(message=_l('Bitte geben Sie eine Bezeichnung an'))])
+    instructions = FileField(_l('Anleitung'), validators=[])
 
 
 class CompoundsForm(FlaskForm):
@@ -186,30 +195,33 @@ class CompoundsForm(FlaskForm):
 
         create_and_add: SubmitField, used to distinguish between create and create_and_add_spectrum
     """
-    name = StringField('Bezeichnung', validators=[InputRequired(message='Bitte geben Sie eine Bezeichnung an')])
-    coaddition = IntegerField('Koaddition', validators=[InputRequired(message='Bitte geben Sie eine Koaddition an')])
-    integration_time = IntegerField('Integrationszeit [ms]',
-                                    validators=[InputRequired(message='Bitte geben Sie eine Integrationszeit an')])
-    laser_power = IntegerField('Laserleistung [mW]',
-                               validators=[InputRequired(message='Bitte geben Sie eine Laserleistung an')])
-    description = StringField('Beschreibung', validators=[])
+    name = StringField(_l('Bezeichnung'), validators=[InputRequired(message=_l('Bitte geben Sie eine Bezeichnung an'))])
+    coaddition = IntegerField(_l('Koaddition'),
+                              validators=[InputRequired(message=_l('Bitte geben Sie eine Koaddition an'))])
+    integration_time = IntegerField(_l('Integrationszeit [ms]'),
+                                    validators=[InputRequired(message=_l('Bitte geben Sie eine Integrationszeit an'))])
+    laser_power = IntegerField(_l('Laserleistung [mW]'),
+                               validators=[InputRequired(message=_l('Bitte geben Sie eine Laserleistung an'))])
+    description = StringField(_l('Beschreibung'), validators=[])
 
-    lenses = SelectField('Objektiv', validate_choice=False,
-                         validators=[InputRequired(message='Bitte wählen Sie ein Objektiv aus')])
-    lasers = SelectField('Laser', validate_choice=False,
-                         validators=[InputRequired(message='Bitte wählen Sie einen Laser aus')])
-    apertures = SelectField('Apertur [µm]', validate_choice=False,
-                            validators=[InputRequired(message='Bitte wählen Sie eine Apertur aus')])
-    slides = SelectField('Objektträger', validate_choice=False,
-                         validators=[InputRequired(message='Bitte wählen Sie einen Objektträger aus')])
-    spectral_ranges = SelectField('Spektralbereich', validate_choice=False,
-                                  validators=[InputRequired(message='Bitte wählen Sie einen Spektralbereich aus')])
-    resolutions = SelectField('Auflösung', validate_choice=False,
-                              validators=[InputRequired(message='Bitte wählen Sie eine Auflösung aus')])
-    substrates = SelectField('Substrat', validate_choice=False, validators=[])
+    lenses = SelectField(_l('Objektiv'), validate_choice=False,
+                         validators=[InputRequired(message=_l('Bitte wählen Sie ein Objektiv aus'))])
+    lasers = SelectField(_l('Laser'), validate_choice=False,
+                         validators=[InputRequired(message=_l('Bitte wählen Sie einen Laser aus'))])
+    apertures = SelectField(_l('Apertur [µm]'), validate_choice=False,
+                            validators=[InputRequired(message=_l('Bitte wählen Sie eine Apertur aus'))])
+    slides = SelectField(_l('Objektträger'), validate_choice=False,
+                         validators=[InputRequired(message=_l('Bitte wählen Sie einen Objektträger aus'))])
+    spectral_ranges = SelectField(_l('Spektralbereich'), validate_choice=False,
+                                  validators=[InputRequired(message=_l('Bitte wählen Sie einen Spektralbereich aus'))])
+    resolutions = SelectField(_l('Auflösung'), validate_choice=False,
+                              validators=[InputRequired(message=_l('Bitte wählen Sie eine Auflösung aus'))])
+    substrates = SelectField(_l('Substrat'), validate_choice=False, validators=[])
 
-    create = SubmitField('Erstellen')
-    create_and_add = SubmitField('Erstellen und Spektrum hinzufügen')
+    date_of_creation = DateField(_l('Erstellungsdatum'), format='%Y-%m-%d', validators=[Optional()])
+
+    create = SubmitField(_l('Erstellen'))
+    create_and_add = SubmitField(_l('Erstellen und Spektrum hinzufügen'), validators=[Optional()])
 
 
 class SpectraForm(FlaskForm):
@@ -221,9 +233,9 @@ class SpectraForm(FlaskForm):
 
         preprocessing_steps: SelectMultipleField, optional
     """
-    spectrum_type = RadioField('Spektrumart', validate_choice=False,
-                               validators=[InputRequired(message='Bitte wählen Sie einen Spektrumtyp aus')])
-    preprocessing_steps = SelectMultipleField('Vorverarbeitung', validate_choice=False, validators=[])
+    spectrum_type = RadioField(_l('Spektrumart'), validate_choice=False,
+                               validators=[InputRequired(message=_l('Bitte wählen Sie einen Spektrumtyp aus'))])
+    preprocessing_steps = SelectMultipleField(_l('Vorverarbeitung'), validate_choice=False, validators=[])
 
 
 class SpectraEditForm(FlaskForm):
@@ -237,10 +249,10 @@ class SpectraEditForm(FlaskForm):
 
         new_spectrum: BooleanField, indicate if a new spectrum should be uploaded
     """
-    spectrum_type = RadioField('Spektrumart', validate_choice=False,
-                               validators=[InputRequired(message='Bitte wählen Sie einen Spektrumtyp aus')])
-    preprocessing_steps = SelectMultipleField('Vorverarbeitung', validate_choice=False, validators=[])
-    new_spectrum = BooleanField('Spektrum austauschen')
+    spectrum_type = RadioField(_l('Spektrumart'), validate_choice=False,
+                               validators=[InputRequired(message=_l('Bitte wählen Sie einen Spektrumtyp aus'))])
+    preprocessing_steps = SelectMultipleField(_l('Vorverarbeitung'), validate_choice=False, validators=[])
+    new_spectrum = BooleanField(_l('Spektrum austauschen'))
 
 
 class IntensityForm(FlaskForm):
@@ -252,11 +264,12 @@ class IntensityForm(FlaskForm):
 
         description: StringField, required
     """
-    shorthand = StringField('Kürzel', validators=[InputRequired(message='Bitte geben Sie ein Kürzel an'),
-                                                  Length(min=1, max=3,
-                                                         message="Das Kürzel darf maximal drei Zeichen lang sein")])
-    description = StringField('Beschreibung',
-                              validators=[InputRequired(message='Bitte geben Sie eine Beschreibung an')])
+    shorthand = StringField(_l('Kürzel'), validators=[InputRequired(message=_l('Bitte geben Sie ein Kürzel an')),
+                                                      Length(min=1, max=3,
+                                                             message=_l(
+                                                                 "Das Kürzel darf maximal drei Zeichen lang sein"))])
+    description = StringField(_l('Beschreibung'),
+                              validators=[InputRequired(message=_l('Bitte geben Sie eine Beschreibung an'))])
 
 
 class PeakForm(FlaskForm):
@@ -266,8 +279,8 @@ class PeakForm(FlaskForm):
     Attributes:
         intensity: SelectField, required
     """
-    intensities = SelectField("Intensität", validate_choice=False,
-                              validators=[InputRequired(message="Bitte wählen Sie eine Intesität aus.")])
+    intensities = SelectField(_l("Intensität"), validate_choice=False,
+                              validators=[InputRequired(message=_l("Bitte wählen Sie eine Intesität aus."))])
 
 
 class QueryForm(FlaskForm):
@@ -277,27 +290,28 @@ class QueryForm(FlaskForm):
     Attributes:
         tolerance: DecimalField, required, default 10.0
     """
-    tolerance = DecimalField("Toleranz", default=10.0,
-                             validators=[InputRequired(message="Bitte geben Sie einen Toleranzbereich an.")])
+    tolerance = DecimalField(_l("Toleranz"), default=10.0,
+                             validators=[InputRequired(message=_l("Bitte geben Sie einen Toleranzbereich an."))])
 
 
 class RamanBandForm(FlaskForm):
-    wavenumber = DecimalField("Wellenzahl ", validators=[InputRequired(message="Bitte geben Sie eine Wellenzahl an.")])
-    bandType = StringField("Schwingungsart",
-                           validators=[InputRequired(message="Bitte geben Sie eine Schwingungsart an.")])
-    bandCategory = SelectField("Kategorie", validate_choice=False,
-                               validators=[InputRequired(message="Bitte geben Sie eine Kategorie an.")])
-    bandAmplitude = SelectField("Intensität", validate_choice=False,
-                                validators=[InputRequired(message="Bitte geben Sie eine Amplitude an.")])
-    author = StringField("Autor")
-    doiLink = StringField("DOI")
+    wavenumber = DecimalField(_l("Wellenzahl"),
+                              validators=[InputRequired(message=_l("Bitte geben Sie eine Wellenzahl an."))])
+    bandType = StringField(_l("Schwingungsart"),
+                           validators=[InputRequired(message=_l("Bitte geben Sie eine Schwingungsart an."))])
+    bandCategory = SelectField(_l("Kategorie"), validate_choice=False,
+                               validators=[InputRequired(message=_l("Bitte geben Sie eine Kategorie an."))])
+    bandAmplitude = SelectField(_l("Intensität"), validate_choice=False,
+                                validators=[InputRequired(message=_l("Bitte geben Sie eine Amplitude an."))])
+    author = StringField(_l("Autor"))
+    doiLink = StringField(_l("DOI"))
 
 
 class RamanBandCategoryForm(FlaskForm):
-    name = StringField("Kategorie", validators=[InputRequired(message="Bitte geben Sie eine Kategorie an.")])
+    name = StringField(_l("Kategorie"), validators=[InputRequired(message=_l("Bitte geben Sie eine Kategorie an."))])
 
 
 class RamanBandQueryForm(FlaskForm):
-    wavenumber = DecimalField("Wellenzahl", validators=[Optional()])
-    bandCategory = SelectField("Kategorie", validate_choice=False,validators=[Optional()] )
-    bandType = StringField("Schwingungsart", validators=[Optional()])
+    wavenumber = DecimalField(_l("Wellenzahl"), validators=[Optional()])
+    bandCategory = SelectField(_l("Kategorie"), validate_choice=False, validators=[Optional()])
+    bandType = StringField(_l("Schwingungsart"), validators=[Optional()])

@@ -1,5 +1,6 @@
 from flask import render_template, request, url_for, flash, redirect
 from flask_login import login_required
+from flask_babel import _
 
 from app.forms.forms import QueryForm
 from app.models.model import Peak, Spectrum, Compound, Intensity
@@ -52,7 +53,7 @@ def query_post():
     # check if at least one wavenumber was given
     # if one wavenumber was given, and the rest of the form is empty, the form is valid
     if  len(data) == 0:
-        flash('Bitte geben Sie mindestens eine Wellenzahl an.', 'danger')
+        flash(_('Bitte geben Sie mindestens eine Wellenzahl an.'), 'danger')
         return redirect(url_for('query.query'))
 
     # query peaks table for peaks within the range wavenumber-tolerance and wavenumber+tolerance

@@ -1,6 +1,8 @@
 import sqlalchemy.exc
 from flask import render_template, request, url_for, flash, redirect
 from flask_login import login_required, current_user
+from flask_babel import _
+
 
 from app.forms.forms import CompoundsForm
 from app.routes.compounds import bp
@@ -8,7 +10,7 @@ from app.models.model import Compound, Lens, Laser, SpectralRange, Resolution, A
     SpectrumType, PreprocessingSteps
 from app.extensions import db
 from app.business_logic import utils
-from datetime import date
+from datetime import date, datetime
 import base64
 
 
@@ -73,7 +75,8 @@ def new_post():
             if form.description.data != '':
                 compound.description = form.description.data
 
-            compound.date = date.today().strftime("%d.%m.%Y")
+            # compound.date = date.today().strftime("%d.%m.%Y")
+            compound.date = form.date_of_creation.data.strftime("%d.%m.%Y")
             compound.user = current_user.email
             db.session.add(compound)
             db.session.commit()
@@ -83,7 +86,7 @@ def new_post():
             elif form.create_and_add.data:
                 return redirect(url_for('spectra.new', compound_id=compound.id))
         except sqlalchemy.exc.IntegrityError:
-            flash('Diese Bezeichnung existiert bereits', 'danger')
+            flash(_('Diese Bezeichnung existiert bereits'), 'danger')
             return render_template('resources/compounds/new.html', form=form)
 
 
@@ -122,6 +125,8 @@ def edit(compound_id):
         form.substrates.data = str(compound.substrate_id)
     else:
         form.substrates.default = 'None'
+
+    form.date_of_creation.data = datetime.strptime(compound.date, "%d.%m.%Y").date()
 
     return render_template('resources/compounds/edit.html', form=form)
 
@@ -169,11 +174,13 @@ def edit_post(compound_id):
             if form.description.data != '':
                 compound.description = form.description.data
 
+            compound.date= form.date_of_creation.data.strftime("%d.%m.%Y")
+
             db.session.add(compound)
             db.session.commit()
             return redirect(url_for('compounds.index'))
         except sqlalchemy.exc.IntegrityError:
-            flash('Diese Bezeichnung existiert bereits', 'danger')
+            flash(_('Diese Bezeichnung existiert bereits'), 'danger')
             return render_template('resources/compounds/edit.html', form=form)
 
 
@@ -199,10 +206,10 @@ def delete(compound_id):
         # delete compound, and through cascade, all spectra and peaks
         db.session.delete(compound)
         db.session.commit()
-        flash("Substanz wurde gelöscht", 'success')
+        flash(_("Substanz wurde gelöscht"), 'success')
         return redirect(url_for('compounds.index'))
     except Exception as e:
-        flash("Substanz konnte nicht gelöscht werden. Probieren Sie es später erneut.", 'danger')
+        flash(_("Substanz konnte nicht gelöscht werden. Probieren Sie es später erneut."), 'danger')
         return redirect(url_for('compounds.index'))
 
 
@@ -272,9 +279,11 @@ def build_compound_form():
     form.slides.choices = [(slide.id, slide.name) for slide in slides]
 
     # need to add option for no substrate
-    form.substrates.choices = [(None, 'Keines')]
+    form.substrates.choices = [(None, _('Keines'))]
     substrates = [(substrate.id, substrate.name) for substrate in substrates]
     for i in substrates:
         form.substrates.choices.append(i)
+
+    form.date_of_creation.data = date.today()
 
     return form

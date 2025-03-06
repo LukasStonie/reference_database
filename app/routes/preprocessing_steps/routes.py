@@ -1,6 +1,7 @@
 import sqlalchemy.exc
 from flask import render_template, request, url_for, flash, redirect
 from flask_login import login_required
+from flask_babel import _
 
 from app.forms.forms import PreprocessingStepsForm
 from app.routes.preprocessing_steps import bp
@@ -59,7 +60,7 @@ def new_post():
             db.session.commit()
             return redirect(url_for('preprocessing_steps.index'))
         except sqlalchemy.exc.IntegrityError:
-            flash('Diese Bezeichnung existiert bereits', 'danger')
+            flash(_('Diese Bezeichnung existiert bereits'), 'danger')
             return render_template('resources/preprocessing_steps/new.html', form=form)
 
 
@@ -108,7 +109,7 @@ def edit_post(preprocessing_step_id):
             db.session.commit()
             return redirect(url_for('preprocessing_steps.index'))
         except sqlalchemy.exc.IntegrityError:
-            flash('Diese Bezeichnung existiert bereits', 'danger')
+            flash(_('Diese Bezeichnung existiert bereits'), 'danger')
             return render_template('resources/preprocessing_steps/edit.html', form=form)
 
 
@@ -133,11 +134,11 @@ def delete(preprocessing_step_id):
         # therefore, we use the execute function
         db.session.execute(f"DELETE FROM preprocessing_steps where id = :id", {"id": preprocessing_step.id})
         db.session.commit()
-        flash("Vorverarbeitungsschritt wurde gelöscht", 'success')
+        flash(_("Vorverarbeitungsschritt wurde gelöscht"), 'success')
         return redirect(url_for('preprocessing_steps.index'))
     except sqlalchemy.exc.IntegrityError:
-        flash("Dieser Vorverarbeitungsschritt wird noch verwendet und kann daher nicht gelöscht werden", 'danger')
+        flash(_("Dieser Vorverarbeitungsschritt wird noch verwendet und kann daher nicht gelöscht werden."), 'danger')
         return redirect(url_for('preprocessing_steps.index'))
     except:
-        flash("Vorverarbeitungsschritt konnte nicht gelöscht werden", 'danger')
+        flash(_("Vorverarbeitungsschritt konnte nicht gelöscht werden."), 'danger')
         return redirect(url_for('preprocessing_steps.index'))

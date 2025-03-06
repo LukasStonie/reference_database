@@ -7,17 +7,14 @@
     {% include 'includes/errors.html' %}
     <div class="row">
         <div class="col-12 col-md-6 d-flex align-items-center justify-content-start">
-            <h1>Erstellen <b><em>Abfrage</em></b></h1>
+            <h1>{{ _('Erstellen') }} <b><em>{{ _('Abfrage') }}</em></b></h1>
         </div>
     </div>
     <div class="row">
         <div class="col-md-6">
-            <p>Geben Sie eine bzw. mehrere Wellenzahle(n) und einen Toleranzbereich ein,
-                um eine Abfrage zu starten. Die angegebenen Wellenzahlen werden nicht mittels einer UND-Verknüpfung
-                verbunden.
-                Es werden Ergebnisse präsentiert, die mindestens eine der angegebenen Wellenzahlen enthalten.
+            <p>{{ _('Geben Sie eine bzw. mehrere Wellenzahlen und einen Toleranzbereich ein, um eine Abfrage zu starten. Die angegebenen Wellenzahlen werden nicht mittels einer UND-Verknüpfung verbunden. Es werden Ergebnisse präsentiert, die mindestens eine der angegebenen Wellenzahlen enthalten.')}}
             </p>
-            <p>Sofern mindestens ein Wellenzahl-Feld ausgefüllt ist, werden alle leeren Felder ignoriert</p>
+            <p>{{ _('Sofern mindestens ein Wellenzahl-Feld ausgefüllt ist, werden alle leeren Felder ignoriert')}}</p>
 
         </div>
     </div>
@@ -27,22 +24,22 @@
                 {{ form.csrf_token}}
                 <div class="row mb-3">
                     <div class="col-md-6">
-                        <label for="{{form.tolerance.id}}" class="form-label">Toleranzbereich [cm<sup>-1</sup>]</label>
+                        <label for="{{form.tolerance.id}}" class="form-label">{{ _('Toleranzbereich [cm<sup>-1</sup>]')}}</label>
                         {{form.tolerance(class="form-control")}}
                     </div>
                 </div>
                 <div id="wavenumbers" class="row">
                     <div class="col-md-6 mb-2">
-                        <label for="wn-0" class="form-label">Wellenzahl [cm<sup>-1</sup>]</label>
+                        <label for="wn-0" class="form-label">{{ _('Wellenzahl [cm<sup>-1</sup>]')}}</label>
                         <input type="number" class="form-control" id="wn-0" name="wn-0">
                     </div>
                 </div>
 
                 <button type="button" id="add-wavenumber-field" class="btn btn-outline-success btn-sm mt-2"><i
-                        class="bi bi-plus-lg"></i> Wellenzahl
+                        class="bi bi-plus-lg"></i> {{ _('Wellenzahl') }}
                 </button>
                 <br>
-                <button type="submit" class="btn btn-primary mt-3">Abfragen</button>
+                <button type="submit" class="btn btn-primary mt-3">{{ _('Abfragen') }}</button>
             </form>
         </div>
     </div>

@@ -1,5 +1,6 @@
 import sqlalchemy.exc
 from flask import render_template, request, url_for, flash, redirect
+from flask_babel import _
 
 from app.forms.forms import LasersForm
 from app.routes.lasers import bp
@@ -59,7 +60,7 @@ def new_post():
             db.session.commit()
             return redirect(url_for('lasers.index'))
         except sqlalchemy.exc.IntegrityError:
-            flash('Diese Wellenlänge existiert bereits', 'danger')
+            flash(_('Diese Wellenlänge existiert bereits'), 'danger')
             return render_template('resources/lasers/new.html', form=form)
 
 
@@ -107,7 +108,7 @@ def edit_post(laser_id):
             db.session.commit()
             return redirect(url_for('lasers.index'))
         except sqlalchemy.exc.IntegrityError:
-            flash('Diese Wellenlänge existiert bereits', 'danger')
+            flash(_('Diese Wellenlänge existiert bereits'), 'danger')
             return render_template('resources/lasers/edit.html', form=form)
 
 
@@ -127,11 +128,11 @@ def delete(laser_id):
         laser = db.session.query(Laser).filter(Laser.id == laser_id).first()
         db.session.delete(laser)
         db.session.commit()
-        flash("Laser wurde gelöscht", 'success')
+        flash(_("Laser wurde gelöscht"), 'success')
         return redirect(url_for('lasers.index'))
     except sqlalchemy.exc.IntegrityError:
-        flash('Dieser Laser wird noch verwendet und kann daher nicht gelöscht werden', 'danger')
+        flash(_('Dieser Laser wird noch verwendet und kann daher nicht gelöscht werden.'), 'danger')
         return redirect(url_for('lasers.index'))
     except:
-        flash('Laser konnte nicht gelöscht werden. Probieren Sie es später erneut', 'danger')
+        flash(_('Laser konnte nicht gelöscht werden. Probieren Sie es später erneut.'), 'danger')
         return redirect(url_for('lasers.index'))

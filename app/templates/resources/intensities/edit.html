@@ -7,16 +7,16 @@
        style="--bs-icon-link-transform: translate3d(-.125rem, 0, 0); --bs-link-color-rgb: 97,100,102;"
        href="{{ url_for('intensities.index') }}">
         <i class="bi bi-arrow-left mb-auto"></i>
-        Zurück
+        {{ _('Zurück')}}
     </a>
 
-    <h1>Bearbeiten <b><em>Intensität</em></b></h1>
+    <h1>{{ _('Bearbeiten') }} <b><em>{{ _('Intensität')}}</em></b></h1>
     {% include 'includes/errors.html' %}
     <form method="POST" novalidate class="row g-3">
         {{form.csrf_token}}
         <div class="mb-3 col-md-6">
             {{ form.shorthand.label(class="form-label") }}
-            {{ form.shorthand(class="form-control", placeholder="vs")}}
+            {{ form.shorthand(class="form-control", placeholder=_("vs"))}}
             {% if form.shorthand.errors %}
             <div class="alert alert-danger my-3" role="alert">
                 {% for error in form.shorthand.errors %}
@@ -29,7 +29,7 @@
         </div>
         <div class="mb-3 col-md-6">
             {{ form.description.label(class="form-label") }}
-            {{ form.description(class="form-control", placeholder="vs")}}
+            {{ form.description(class="form-control", placeholder=_("vs"))}}
             {% if form.description.errors %}
             <div class="alert alert-danger my-3" role="alert">
                 {% for error in form.description.errors %}
@@ -41,7 +41,7 @@
             {% endif %}
         </div>
         <div class="col-12">
-            <button type="submit" class="btn btn-primary">Speichern</button>
+            <button type="submit" class="btn btn-primary">{{ _('Speichern') }}</button>
         </div>
     </form>
 </div>

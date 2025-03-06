@@ -14,55 +14,54 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                        aria-expanded="false">
-                        Verwaltung
+                        {{ _('Verwaltung') }}
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{{ url_for('lenses.index') }}">Objektive</a></li>
-                        <li><a class="dropdown-item" href="{{ url_for('lasers.index') }}">Laser</a></li>
-                        <li><a class="dropdown-item" href="{{ url_for('apertures.index') }}">Apertur</a></li>
-                        <li><a class="dropdown-item" href="{{ url_for('slides.index') }}">Objektträger</a></li>
-                        <li><a class="dropdown-item" href="{{ url_for('substrates.index') }}">Substrate</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('lenses.index', lang_code=g.lang_code) }}">{{ _('Objektive') }}</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('lasers.index', lang_code=g.lang_code) }}">{{ _('Laser') }}</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('apertures.index', lang_code=g.lang_code) }}">{{ _('Aperturen') }}</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('slides.index', lang_code=g.lang_code) }}">{{ _('Objektträger')}}</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('substrates.index', lang_code=g.lang_code) }}">{{ _('Substrate') }}</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="{{ url_for('spectral_ranges.index') }}">Spektralbereiche</a>
+                        <li><a class="dropdown-item" href="{{ url_for('spectral_ranges.index', lang_code=g.lang_code) }}">{{ _('Spektralbereiche') }}</a>
                         </li>
-                        <li><a class="dropdown-item" href="{{ url_for('resolutions.index') }}">Auflösungen</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('resolutions.index', lang_code=g.lang_code) }}">{{ _('Auflösungen')}}</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="{{ url_for('spectra_types.index') }}">Spektrenarten</a></li>
-                        <li><a class="dropdown-item" href="{{ url_for('preprocessing_steps.index') }}">Vorverarbeitungsschritte</a>
+                        <li><a class="dropdown-item" href="{{ url_for('spectra_types.index', lang_code=g.lang_code) }}">{{ _('Spektrenarten') }}</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('preprocessing_steps.index', lang_code=g.lang_code) }}">{{ _('Vorverarbeitungsschritte') }}</a>
                         </li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="{{ url_for('intensities.index') }}">Intensitäten</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('intensities.index', lang_code=g.lang_code) }}">{{ _('Intensitäten')}}</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('compounds.index') }}">Refernzsubstanzen</a></li>
+                    <a class="nav-link" href="{{ url_for('compounds.index', lang_code=g.lang_code) }}">{{ _('Referenzsubstanzen') }}</a></li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('query.query') }}">Abfragen</a>
+                    <a class="nav-link" href="{{ url_for('query.query', lang_code=g.lang_code) }}">{{ _('Abfragen') }}</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                        aria-expanded="false">
-                        Wellenzahl Bibliothek
+                        {{ _('Wellenzahl Bibliothek')}}
                     </a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a class="dropdown-item" href="{{ url_for('ramanband.index') }}">Raman-Banden</a>
+                            <a class="dropdown-item" href="{{ url_for('ramanband.index', lang_code=g.lang_code) }}">{{ _('Raman-Banden') }}</a>
                         </li>
 
-                        <li><a class="dropdown-item" href="{{ url_for('ramanbands_categories.index') }}">Raman-Banden
-                            Kategorien</a>
+                        <li><a class="dropdown-item" href="{{ url_for('ramanbands_categories.index', lang_code=g.lang_code) }}">{{ _('Raman-Banden Kategorien')}}</a>
                         </li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
                         <li>
-                            <a class="dropdown-item" href="{{ url_for('ramanband.query') }}">Suche</a>
+                            <a class="dropdown-item" href="{{ url_for('ramanband.query', lang_code=g.lang_code) }}">{{ _('Suche') }}</a>
                         </li>
                     </ul>
 
@@ -71,12 +70,24 @@
             </ul>
         {% endif %}
     </div>
+    <!-- Example single danger button -->
+    <div class="btn-group me-3">
+        <button type="button" class="btn btn-outline-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            {{ _('Sprache') }}
+        </button>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{{ url_for(request.endpoint, lang_code='de', **request.view_args) }}">{{ _('Deutsch') }}</a></li>
+            <li><a class="dropdown-item" href="{{ url_for(request.endpoint, lang_code='en', **request.view_args) }}">{{ _('Englisch') }}</a></li>
+        </ul>
+    </div>
     <!-- check if user is authenticated/logged in -->
     <!-- if yes show "Abmelden" -->
     {% if current_user.is_authenticated %}
-        <a class="nav-link" href="{{ url_for('auth.logout') }}">Abmelden</a>
+        <a class="nav-link" href="{{ url_for('auth.logout', lang_code=g.lang_code ) }}">{{ _('Abmelden') }}</a>
         <!-- if not show "Anmelden" -->
     {% else %}
-        <a class="nav-link" href="{{ url_for('auth.login') }}">Anmelden</a>
+        <a class="nav-link" href="{{ url_for('auth.login', lang_code=g.lang_code) }}">{{ _('Anmelden') }}</a>
     {% endif %}
+
+
 </nav>

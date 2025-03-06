@@ -1,6 +1,7 @@
 import sqlalchemy.exc
 from flask import render_template, request, url_for, flash, redirect
 from flask_login import login_required
+from flask_babel import _
 
 from app.forms.forms import ResolutionsForm
 from app.routes.resolutions import bp
@@ -59,7 +60,7 @@ def new_post():
             db.session.commit()
             return redirect(url_for('resolutions.index'))
         except sqlalchemy.exc.IntegrityError:
-            flash('Diese Bezeichnung existiert bereits', 'danger')
+            flash(_('Diese Bezeichnung existiert bereits'), 'danger')
             return render_template('resources/resolutions/new.html', form=form)
 
 
@@ -107,7 +108,7 @@ def edit_post(resolution_id):
             db.session.commit()
             return redirect(url_for('resolutions.index'))
         except sqlalchemy.exc.IntegrityError:
-            flash('Diese Bezeichnung existiert bereits', 'danger')
+            flash(_('Diese Bezeichnung existiert bereits'), 'danger')
             return render_template('resources/resolutions/edit.html', form=form)
 
 
@@ -127,11 +128,11 @@ def delete(resolution_id):
         resolution = db.session.query(Resolution).filter_by(id=resolution_id).first()
         db.session.delete(resolution)
         db.session.commit()
-        flash("Auflösung wurde gelöscht", 'success')
+        flash(_("Auflösung wurde gelöscht"), 'success')
         return redirect(url_for('resolutions.index'))
     except sqlalchemy.exc.IntegrityError:
-        flash('Diese Auflösung wird noch verwendet und kann daher nicht gelöscht werden', 'danger')
+        flash(_('Diese Auflösung wird noch verwendet und kann daher nicht gelöscht werden.'), 'danger')
         return redirect(url_for('resolutions.index'))
     except:
-        flash('Auflösung konnte nicht gelöscht werden. Probieren Sie es später erneut', 'danger')
+        flash(_('Auflösung konnte nicht gelöscht werden. Probieren Sie es später erneut.'), 'danger')
         return redirect(url_for('resolutions.index'))

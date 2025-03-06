@@ -1,5 +1,6 @@
 import sqlalchemy.exc
 from flask import render_template, request, url_for, flash, redirect
+from flask_babel import _
 
 from app.forms.forms import LensesForm
 from app.routes.lenses import bp
@@ -9,6 +10,7 @@ from flask_login import login_required, current_user
 
 
 @bp.route('/')
+@bp.route('/index')
 @login_required
 def index():
     """
@@ -61,7 +63,7 @@ def new_post():
             return redirect(url_for('lenses.index'))
 
         except sqlalchemy.exc.IntegrityError:
-            flash('Diese Kombination aus Zoom und numerischer Apertur existiert bereits', 'danger')
+            flash(_('Diese Kombination aus Zoom und numerischer Apertur existiert bereits'), 'danger')
             return render_template('resources/lenses/new.html', form=form)
 
 
@@ -111,7 +113,7 @@ def edit_post(lens_id):
             db.session.commit()
             return redirect(url_for('lenses.index'))
         except sqlalchemy.exc.IntegrityError:
-            flash('Diese Kombination aus Zoom und numerischer Apertur existiert bereits', 'danger')
+            flash(_('Diese Kombination aus Zoom und numerischer Apertur existiert bereits.'), 'danger')
             return render_template('resources/lenses/edit.html', form=form)
 
 
@@ -131,11 +133,11 @@ def delete(lens_id):
         lens = db.session.query(Lens).filter(Lens.id == lens_id).first()
         db.session.delete(lens)
         db.session.commit()
-        flash("Objektiv wurde gelöscht", 'success')
+        flash(_("Objektiv wurde gelöscht"), 'success')
         return redirect(url_for('lenses.index'))
     except sqlalchemy.exc.IntegrityError:
-        flash('Dieses Objektiv wird noch verwendet und kann daher nicht gelöscht werden', 'danger')
+        flash(_('Dieses Objektiv wird noch verwendet und kann daher nicht gelöscht werden.'), 'danger')
         return redirect(url_for('lenses.index'))
     except:
-        flash('Objektiv konnte nicht gelöscht werden. Probieren Sie es später erneut.', 'danger')
+        flash(_('Objektiv konnte nicht gelöscht werden. Probieren Sie es später erneut.'), 'danger')
         return redirect(url_for('lenses.index'))

@@ -14,12 +14,12 @@
                         </div>
                         <div class="row">
                             <div class="col">
-                                <h3><em>Speichern Nachschlagen Abfragen</em></h3>
+                                <h3><em>{{ _('Speichern Nachschlagen Abfragen')}}</em></h3>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 my-5 d-flex align-items-center">
-                        <h2>Refernzdatenbank für Raman-Spektren</h2>
+                        <h2>{{ _('Referenzdatenbank für Raman-Spektren')}}</h2>
                     </div>
                 </div>
 
@@ -29,42 +29,36 @@
             {% if current_user.is_authenticated %}
                 <div class="row">
                     <div class="col-md-6">
-                        <h3>Fügen Sie eine Refernzsubstanz hinzu</h3>
-                        <p class="col-md-8">Refernzsubstanzen werden dazu verwendet, um bei einer späteren Abfrage zu
-                            identifizieren, welche Substanzen in Frage kommen könnten </p>
-                        <a type="button" class="btn btn-outline-success btn-sm" href="{{ url_for('compounds.new') }}">
+                        <h3>{{ _('Fügen Sie eine Referenzsubstanz hinzu')}}</h3>
+                        <p class="col-md-8">{{ _('Referenzsubstanzen werden dazu verwendet, um bei einer späteren Abfrage zu identifizieren, welche Substanzen in Frage kommen könnten')}} </p>
+                        <a type="button" class="btn btn-outline-success btn-sm" href="{{ url_for('compounds.new', lang_code=g.lang_code) }}">
                             <i class="bi bi-plus-lg"></i>
-                            Referenzsubstanz hinzufügen
+                            {{ _('Referenzsubstanz hinzufügen')}}
                         </a>
                     </div>
                     <div class="col-md-6">
-                        <h3>Starten Sie eine Abfrage!</h3>
-                        <p class="col-md-8">Wenn Sie eine Abfrage starten, können Sie mehrere Wellenzahlen eingeben.
-                            Die Datenbank wird anschließend nach
-                            Spitzen durchsucht, die in einem Toleranzbereich um die gegebenen Wellenzahlen liegt.
+                        <h3>{{ _('Starten Sie eine Abfrage!')}}</h3>
+                        <p class="col-md-8">{{ _('Wenn Sie eine Abfrage starten, können Sie mehrere Wellenzahlen eingeben. Die Datenbank wird anschließend nach Spitzen durchsucht, die in einem Toleranzbereich um die gegebenen Wellenzahlen liegt.')}}
                         </p>
-                        <a type="button" class="btn btn-outline-success btn-sm" href="{{ url_for('query.query') }}">
-                            Abfrage starten
+                        <a type="button" class="btn btn-outline-success btn-sm" href="{{ url_for('query.query', lang_code=g.lang_code) }}">
+                            {{ _('Abfrage starten')}}
                         </a>
                     </div>
                 </div>
             {% else %}
                 <div class="row">
                     <div class="col-md-6">
-                        <h3>Melden Sie sich an!</h3>
-                        <p class="col-md-8">Sie können Refernenzsubstanzen nur hinzufügen bzw. Abfragen nur starten wenn
-                            Sie
-                            angemeldet sind!</p>
-                        <a type="button" class="btn btn-outline-primary btn-sm" href="{{ url_for('auth.login') }}">
-                            Anmelden
+                        <h3>{{ _('Melden Sie sich an!')}}</h3>
+                        <p class="col-md-8">{{ _('Sie können Referenzsubstanzen nur hinzufügen bzw. Abfragen nur starten wenn Sie angemeldet sind!')}}</p>
+                        <a type="button" class="btn btn-outline-primary btn-sm" href="{{ url_for('auth.login', lang_code=g.lang_code) }}">
+                            {{ _('Anmelden') }}
                         </a>
                     </div>
                     <div class="col-md-6">
-                        <h3>Registrieren Sie sich!</h3>
-                        <p class="col-md-8">Um sich anmelden zu können, müssen Sie sich zuerst registrieren.<br>Ihr
-                            Account muss jedoch zuerst von einem Administrator freigeschalten werden</p>
-                        <a type="button" class="btn btn-outline-primary btn-sm" href="{{ url_for('auth.signup') }}">
-                            Registrieren
+                        <h3>{{ _('Registrieren Sie sich!')}}</h3>
+                        <p class="col-md-8">{{ _('Um sich anmelden zu können, müssen Sie sich zuerst registrieren.<br>Ihr Account muss jedoch zuerst von einem Administrator freigeschaltet werden')}}</p>
+                        <a type="button" class="btn btn-outline-primary btn-sm" href="{{ url_for('auth.signup', lang_code=g.lang_code) }}">
+                            {{ _('Registrieren') }}
                         </a>
                     </div>
                 </div>

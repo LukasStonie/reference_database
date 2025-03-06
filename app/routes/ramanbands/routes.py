@@ -1,6 +1,7 @@
 import sqlalchemy.exc
 from flask import render_template, request, url_for, flash, redirect
 from flask_login import login_required, current_user
+from flask_babel import _
 from sqlalchemy import desc
 
 from app.forms.forms import RamanBandForm, RamanBandQueryForm
@@ -82,7 +83,7 @@ def new_post():
 
             return redirect(url_for('ramanband.index'))
         except sqlalchemy.exc.IntegrityError:
-            flash('Diese Kategorie existiert bereits', 'danger')
+            flash(_('Diese Kategorie existiert bereits'), 'danger')
             return render_template('resources/ramanbands/new.html', form=form)
 
 
@@ -151,7 +152,7 @@ def edit_post(band_id):
             db.session.commit()
             return redirect(url_for('ramanband.index'))
         except sqlalchemy.exc.IntegrityError:
-            flash('Dieses Ramanband existiert bereits', 'danger')
+            flash(_('Dieses Raman-Band existiert bereits'), 'danger')
             return render_template('resources/ramanbands/edit.html', form=form)
 
 
@@ -171,13 +172,13 @@ def delete(band_id):
         category = db.session.query(RamanBands).filter(RamanBands.id == band_id).first()
         db.session.delete(category)
         db.session.commit()
-        flash("Raman-Band wurde gelöscht", 'success')
+        flash(_("Raman-Band wurde gelöscht"), 'success')
         return redirect(url_for('ramanband.index'))
     except sqlalchemy.exc.IntegrityError:
-        flash('Dieses Raman-Band wird noch verwendet und kann daher nicht gelöscht werden', 'danger')
+        flash(_('Dieses Raman-Band wird noch verwendet und kann daher nicht gelöscht werden.'), 'danger')
         return redirect(url_for('ramanband.index'))
     except:
-        flash('Raman-Band konnte nicht gelöscht werden. Probieren Sie es später erneut', 'danger')
+        flash(_('Raman-Band konnte nicht gelöscht werden. Probieren Sie es später erneut.'), 'danger')
         return redirect(url_for('ramanband.index'))
 
 

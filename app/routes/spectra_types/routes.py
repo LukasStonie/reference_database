@@ -1,6 +1,7 @@
 import sqlalchemy.exc
 from flask import render_template, request, url_for, flash, redirect
 from flask_login import login_required
+from flask_babel import _
 
 from app.forms.forms import SpectralTypesForm
 from app.routes.spectra_types import bp
@@ -58,7 +59,7 @@ def new_post():
             db.session.commit()
             return redirect(url_for('spectra_types.index'))
         except sqlalchemy.exc.IntegrityError:
-            flash('Diese Bezeichnung existiert bereits', 'danger')
+            flash(_('Diese Bezeichnung existiert bereits'), 'danger')
             return render_template('resources/spectra_types/new.html', form=form)
 
 
@@ -108,7 +109,7 @@ def edit_post(spectrum_type_id):
             db.session.commit()
             return redirect(url_for('spectra_types.index'))
         except sqlalchemy.exc.IntegrityError:
-            flash('Diese Bezeichnung existiert bereits', 'danger')
+            flash(_('Diese Bezeichnung existiert bereits'), 'danger')
             return render_template('resources/spectra_types/edit.html', form=form)
 
 
@@ -128,10 +129,10 @@ def delete(spectrum_type_id):
         spectrum_type = db.session.query(SpectrumType).filter(SpectrumType.id == spectrum_type_id).first()
         db.session.delete(spectrum_type)
         db.session.commit()
-        flash("Spektrumart wurde gelöscht", 'success')
+        flash(_("Spektrumart wurde gelöscht"), 'success')
         return redirect(url_for('spectra_types.index'))
     except sqlalchemy.exc.IntegrityError:
-        flash('Diese Spektrumart wird noch verwendet und kann daher nicht gelöscht werden.', 'danger')
+        flash(_('Diese Spektrumart wird noch verwendet und kann daher nicht gelöscht werden.'), 'danger')
         return redirect(url_for('spectra_types.index'))
     except:
-        flash('Spektrumart konnte nicht gelöscht werden. Probieren Sie es später erneut.', 'danger')
+        flash(_('Spektrumart konnte nicht gelöscht werden. Probieren Sie es später erneut.'), 'danger')

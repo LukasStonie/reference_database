@@ -7,15 +7,15 @@
        style="--bs-icon-link-transform: translate3d(-.125rem, 0, 0); --bs-link-color-rgb: 97,100,102;"
        href="{{ url_for('substrates.index') }}">
         <i class="bi bi-arrow-left mb-auto"></i>
-        Zurück
+        {{ _('Zurück')}}
     </a>
-    <h1>Bearbeiten <b><em>Substrat</em></b></h1>
+    <h1>{{ _('Bearbeiten') }} <b><em>{{ _('Substrat') }}</em></b></h1>
     {% include 'includes/errors.html' %}
     <form method="POST" enctype="multipart/form-data" novalidate>
         {{ form.csrf_token }}
         <div class="mb-3">
             {{form.name.label(class="form-label")}}
-            {{form.name(class="form-control", placeholder="Gold Nanopartikel")}}
+            {{form.name(class="form-control", placeholder=_("Gold Nanopartikel"))}}
             {% if form.name.errors %}
             <div class="alert alert-danger my-3" role="alert">
                 {% for error in form.name.errors %}
@@ -30,10 +30,10 @@
         <div class="input-group mb-3">
             <a class="btn btn-outline-success" type="button" id="button-download"
                href="{{url_for('substrates.download', substrate_id=substrate.id)}}"><i class="bi bi-download"></i>
-                Herunterladen</a>
+                {{ _('Herunterladen') }}</a>
             <a class="btn btn-outline-danger" type="button" id="button-delete"
                href="{{url_for('substrates.remove_file', substrate_id=substrate.id)}}"><i class="bi bi-trash-fill"></i>
-                Löschen</a>
+                {{ _('Löschen')}}</a>
             <input type="text" class="form-control" aria-label="Example text with button addon"
                    aria-describedby="button-addon1" value="{{substrate.filename}}" disabled>
         </div>
@@ -52,7 +52,7 @@
             {% endif %}
         </div>
         {% endif %}
-        <button type="submit" class="btn btn-primary">Speichern</button>
+        <button type="submit" class="btn btn-primary">{{ _('Speichern') }}</button>
     </form>
 </div>
 {% endblock %}
