@@ -1,5 +1,6 @@
 import sqlalchemy.exc
 from flask import render_template, request, url_for, flash, redirect
+from flask_babel import _
 from flask_login import login_required
 
 from app.forms.forms import AperturesForm
@@ -62,7 +63,7 @@ def new_post():
             db.session.commit()
             return redirect(url_for('apertures.index'))
         except sqlalchemy.exc.IntegrityError:
-            flash('Diese Größe existiert bereits', 'danger')
+            flash(_('Diese Größe existiert bereits'), 'danger')
             return render_template('resources/apertures/new.html', form=form)
 
 
@@ -111,7 +112,7 @@ def edit_post(aperture_id):
             db.session.commit()
             return redirect(url_for('apertures.index'))
         except sqlalchemy.exc.IntegrityError:
-            flash('Diese Größe existiert bereits', 'danger')
+            flash(_('Diese Größe existiert bereits'), 'danger')
             return render_template('resources/apertures/edit.html', form=form)
 
 
@@ -131,11 +132,11 @@ def delete(aperture_id):
         aperture = db.session.query(Aperture).filter(Aperture.id == aperture_id).first()
         db.session.delete(aperture)
         db.session.commit()
-        flash("Apertur wurde gelöscht", 'success')
+        flash(_("Apertur wurde gelöscht"), 'success')
         return redirect(url_for('apertures.index'))
     except sqlalchemy.exc.IntegrityError:
-        flash('Diese Apertur wird noch verwendet und kann daher nicht gelöscht werden.', 'danger')
+        flash(_('Diese Apertur wird noch verwendet und kann daher nicht gelöscht werden.'), 'danger')
         return redirect(url_for('apertures.index'))
     except:
-        flash('Apertur konnte nicht gelöscht werden. Probieren Sie es später erneut.', 'danger')
+        flash(_('Apertur konnte nicht gelöscht werden. Probieren Sie es später erneut.'), 'danger')
         return redirect(url_for('apertures.index'))

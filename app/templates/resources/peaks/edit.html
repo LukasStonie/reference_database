@@ -1,49 +1,52 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container mt-3 content">
+    <div class="container mt-3 content">
 
-    <a class="icon-link icon-link-hover mb-2"
-       style="--bs-icon-link-transform: translate3d(-.125rem, 0, 0); --bs-link-color-rgb: 97,100,102;"
-       href="{{ url_for('compounds.show', compound_id=compound_id) }}">
-        <i class="bi bi-arrow-left mb-auto"></i>
-        Zurück
-    </a>
+        <a class="icon-link icon-link-hover mb-2"
+           style="--bs-icon-link-transform: translate3d(-.125rem, 0, 0); --bs-link-color-rgb: 97,100,102;"
+           href="{{ url_for('compounds.show', compound_id=compound_id) }}">
+            <i class="bi bi-arrow-left mb-auto"></i>
+            {{ _('Zurück') }}
+        </a>
 
-    <h1>Bearbeiten <b><em>Peaks</em></b></h1>
-    {% include 'includes/errors.html' %}
-    <div class="row">
-        <div class="col-md-6">
-            <form method="POST" novalidate>
-                {{ form.csrf_token}}
-                <div class="overflow-scroll" style="height: 50vh">
-                    {% for peak in peaks %}
-                    <div class="row">
-                        <div class="col-md-6">
-                            <label for="{{peak.wavenumber}}" class="form-label">Wellenzahl [cm<sup>-1</sup>]</label>
-                            <input type="number" class="form-control" id="{{peak.wavenumber}}"
-                                   value="{{peak.wavenumber}}" disabled>
-                        </div>
-                        <div class="col-md-6">
-                            <label for="{{peak.wavenumber}}_intensity" class="form-label">Intensität</label>
-                            <select class="form-select" id="{{peak.wavenumber}}_intensity"
-                                    name="{{peak.wavenumber}}_intensity">
-                                {% for intensity in intensities %}
-                                <option value="{{intensity.id}}" {% if peak.intensity_id== intensity.id %} selected {%
-                                        endif %}>{{intensity.shorthand}} ({{intensity.description}})
-                                </option>
-                                {% endfor %}
-                            </select>
-                        </div>
+        <h1>{{ _('Bearbeiten') }} <b><em>{{ _('Peaks') }}</em></b></h1>
+        {% include 'includes/errors.html' %}
+        <div class="row">
+            <div class="col-md-6">
+                <form method="POST" novalidate>
+                    {{ form.csrf_token }}
+                    <div class="overflow-scroll" style="height: 50vh">
+                        {% for peak in peaks %}
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="{{ peak.wavenumber }}"
+                                           class="form-label">{{ _('Wellenzahl [cm<sup>-1</sup>]') }}</label>
+                                    <input type="number" class="form-control" id="{{ peak.wavenumber }}"
+                                           value="{{ peak.wavenumber }}" disabled>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="{{ peak.wavenumber }}_intensity"
+                                           class="form-label">{{ _('Intensität') }}</label>
+                                    <select class="form-select" id="{{ peak.wavenumber }}_intensity"
+                                            name="{{ peak.wavenumber }}_intensity">
+                                        {% for intensity in intensities %}
+                                            <option value="{{ intensity.id }}" {% if peak.intensity_id== intensity.id %}
+                                                    selected {% endif %}>{{ intensity.shorthand }}
+                                                ({{ intensity.description }})
+                                            </option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                        {% endfor %}
                     </div>
-                    {% endfor %}
-                </div>
-                <button type="submit" class="btn btn-primary mt-3">Speichern</button>
-            </form>
-        </div>
-        <div class="col-md-6">
-            <img src="data:image/png;base64,{{plot}}" width="100%">
+                    <button type="submit" class="btn btn-primary mt-3">{{ _('Speichern') }}</button>
+                </form>
+            </div>
+            <div class="col-md-6">
+                <img src="data:image/png;base64,{{ plot }}" width="100%">
+            </div>
         </div>
     </div>
-</div>
 {% endblock %}

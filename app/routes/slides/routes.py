@@ -1,6 +1,7 @@
 import sqlalchemy.exc
 from flask import render_template, request, url_for, flash, redirect
 from flask_login import login_required
+from flask_babel import _
 
 from app.forms.forms import SlidesForm
 from app.routes.slides import bp
@@ -59,7 +60,7 @@ def new_post():
             db.session.commit()
             return redirect(url_for('slides.index'))
         except sqlalchemy.exc.IntegrityError:
-            flash('Diese Bezeichnung existiert bereits', 'danger')
+            flash(_('Diese Bezeichnung existiert bereits'), 'danger')
             return render_template('resources/slides/new.html', form=form)
 
 
@@ -107,7 +108,7 @@ def edit_post(slide_id):
             db.session.commit()
             return redirect(url_for('slides.index'))
         except sqlalchemy.exc.IntegrityError:
-            flash('Diese Bezeichnung existiert bereits', 'danger')
+            flash(_('Diese Bezeichnung existiert bereits'), 'danger')
             return render_template('resources/slides/edit.html', form=form)
 
 
@@ -127,11 +128,11 @@ def delete(slide_id):
         slide = db.session.query(Slide).filter(Slide.id == slide_id).first()
         db.session.delete(slide)
         db.session.commit()
-        flash("Objektträger wurde gelöscht", 'success')
+        flash(_("Objektträger wurde gelöscht"), 'success')
         return redirect(url_for('slides.index'))
     except sqlalchemy.exc.IntegrityError:
-        flash("Dieser Objektträger wird noch verwendet und konnte daher nicht gelöscht werden", 'danger')
+        flash(_("Dieser Objektträger wird noch verwendet und konnte daher nicht gelöscht werden."), 'danger')
         return redirect(url_for('slides.index'))
     except:
-        flash("Objektträger konnte nicht gelöscht werden", 'danger')
+        flash(_("Objektträger konnte nicht gelöscht werden."), 'danger')
         return redirect(url_for('slides.index'))

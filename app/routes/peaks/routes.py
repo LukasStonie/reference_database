@@ -5,6 +5,8 @@ import numpy as np
 import sqlalchemy.exc
 from flask import render_template, request, url_for, flash, redirect
 from flask_login import login_required
+from flask_babel import _
+
 from matplotlib import pyplot as plt
 from scipy.signal import find_peaks
 import pandas as pd
@@ -34,7 +36,7 @@ def peak_exists(compound_id):
     peak_spectrum = db.session.query(Spectrum).filter(Spectrum.compound_id == compound_id).filter(
         Spectrum.spectrum_type_id == spectrum_type_peak).first()
     if peak_spectrum is not None:
-        flash('Es existiert bereits ein Peak-Spektrum für diese Substanz', 'danger')
+        flash(_('Es existiert bereits ein Peak-Spektrum für diese Substanz'), 'danger')
         return True
     return False
 
@@ -207,10 +209,10 @@ def new_post(compound_id):
     data = get_form_data(request.form)
     try:
         create_spectrum_and_peaks(compound_id, data)
-        flash('Peak-Spektrum wurde erstellt', 'success')
+        flash(_('Peak-Spektrum wurde erstellt'), 'success')
         return redirect(url_for('compounds.show', compound_id=compound_id))
     except:
-        flash('Es ist ein Fehler aufgetreten', 'danger')
+        flash(_('Es ist ein Fehler aufgetreten'), 'danger')
         return redirect(url_for('compounds.show', compound_id=compound_id))
 
 
@@ -260,8 +262,8 @@ def edit_post(spectrum_id):
         for i, e in enumerate(peaks):
             peaks[i].intensity_id = data[e.wavenumber]
         db.session.commit()
-        flash('Peak-Spektrum wurde aktualisiert', 'success')
+        flash(_('Peak-Spektrum wurde aktualisiert'), 'success')
         return redirect(url_for('compounds.show', compound_id=db.session.query(Spectrum).filter(Spectrum.id == spectrum_id).first().compound_id))
     except:
-        flash('Es ist ein Fehler aufgetreten', 'danger')
+        flash(_('Es ist ein Fehler aufgetreten'), 'danger')
         return redirect(url_for('compounds.show', compound_id=db.session.query(Spectrum).filter(Spectrum.id == spectrum_id).first().compound_id))

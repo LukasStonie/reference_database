@@ -1,6 +1,7 @@
 import sqlalchemy.exc
 from flask import render_template, request, url_for, flash, redirect
 from flask_login import login_required
+from flask_babel import _
 
 from app.forms.forms import SpectralRangesForm
 from app.routes.spectral_ranges import bp
@@ -59,7 +60,7 @@ def new_post():
             db.session.commit()
             return redirect(url_for('spectral_ranges.index'))
         except sqlalchemy.exc.IntegrityError:
-            flash('Diese Kombination aus Start und Ende existiert bereits', 'danger')
+            flash(_('Diese Kombination aus Start und Ende existiert bereits'), 'danger')
             return render_template('resources/spectral_ranges/new.html', form=form)
 
 
@@ -110,7 +111,7 @@ def edit_post(spectral_range_id):
             db.session.commit()
             return redirect(url_for('spectral_ranges.index'))
         except sqlalchemy.exc.IntegrityError:
-            flash('Diese Kombination aus Start und Ende existiert bereits', 'danger')
+            flash(_('Diese Kombination aus Start und Ende existiert bereits'), 'danger')
             return render_template('resources/spectral_ranges/edit.html', form=form)
 
 
@@ -130,11 +131,11 @@ def delete(spectral_range_id):
         spectral_range = db.session.query(SpectralRange).filter(SpectralRange.id == spectral_range_id).first()
         db.session.delete(spectral_range)
         db.session.commit()
-        flash("Spektralbereich wurde gelöscht", 'success')
+        flash(_("Spektralbereich wurde gelöscht"), 'success')
         return redirect(url_for('spectral_ranges.index'))
     except sqlalchemy.exc.IntegrityError:
-        flash('Dieser Spektralbereich wird noch verwendet und konnte daher nicht gelöscht werden', 'danger')
+        flash(_('Dieser Spektralbereich wird noch verwendet und konnte daher nicht gelöscht werden'), 'danger')
         return redirect(url_for('spectral_ranges.index'))
     except:
-        flash("Spektralbereich konnte nicht gelöscht werden. Probieren Sie es später erneut.", 'danger')
+        flash(_("Spektralbereich konnte nicht gelöscht werden. Probieren Sie es später erneut."), 'danger')
         return redirect(url_for('spectral_ranges.index'))

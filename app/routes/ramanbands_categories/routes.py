@@ -1,6 +1,7 @@
 import sqlalchemy.exc
 from flask import render_template, request, url_for, flash, redirect
 from flask_login import login_required, current_user
+from flask_babel import _
 
 from app.forms.forms import RamanBandCategoryForm
 from app.routes.ramanbands_categories import bp
@@ -50,7 +51,7 @@ def new_post():
             db.session.commit()
             return redirect(url_for('ramanbands_categories.index'))
         except sqlalchemy.exc.IntegrityError:
-            flash('Diese Kategorie existiert bereits', 'danger')
+            flash(_('Diese Kategorie existiert bereits'), 'danger')
             return render_template('resources/ramanband_categories/new.html', form=form)
 
 
@@ -100,7 +101,7 @@ def edit_post(category_id):
             db.session.commit()
             return redirect(url_for('ramanbands_categories.index'))
         except sqlalchemy.exc.IntegrityError:
-            flash('Diese Kategorie existiert bereits', 'danger')
+            flash(_('Diese Kategorie existiert bereits'), 'danger')
             return render_template('resources/ramanband_categories/edit.html', form=form)
 @bp.route('/<category_id>/delete')
 @login_required
@@ -118,11 +119,11 @@ def delete(category_id):
         category = db.session.query(RamanBandCategory).filter(RamanBandCategory.id == category_id).first()
         db.session.delete(category)
         db.session.commit()
-        flash("Kategorie wurde gelöscht", 'success')
+        flash(_("Kategorie wurde gelöscht"), 'success')
         return redirect(url_for('ramanbands_categories.index'))
     except sqlalchemy.exc.IntegrityError:
-        flash('Diese Kategorie wird noch verwendet und kann daher nicht gelöscht werden', 'danger')
+        flash(_('Diese Kategorie wird noch verwendet und kann daher nicht gelöscht werden.'), 'danger')
         return redirect(url_for('ramanbands_categories.index'))
     except:
-        flash('Kategorie konnte nicht gelöscht werden. Probieren Sie es später erneut', 'danger')
+        flash(_('Kategorie konnte nicht gelöscht werden. Probieren Sie es später erneut.'), 'danger')
         return redirect(url_for('ramanbands_categories.index'))

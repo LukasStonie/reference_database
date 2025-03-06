@@ -7,25 +7,25 @@
     {% include 'includes/errors.html' %}
     <div class="row">
         <div class="col-12 col-md-6 d-flex align-items-center justify-content-start">
-            <h1>Übersicht <b><em>Spektralbereiche</em></b></h1>
+            <h1>{{_('Übersicht')}} <b><em>{{ _('Spektralbereich') }}</em></b></h1>
         </div>
         <div class="col-12 col-md-6 d-flex align-items-center justify-content-start justify-content-md-end">
             <a type="button" class="btn btn-outline-success btn-sm" href="{{ url_for('spectral_ranges.new') }}"><i
                     class="bi bi-plus-lg"></i>
-                Neuen Spektralbereich erstellen
+                {{ _('Neuen Spektralbereich erstellen')}}
             </a>
         </div>
     </div>
     {% if spectral_ranges|length<=0 %}
-    <h4>Es sind noch keine Spektralbereiche hinterlegt</h4>
+    <h4>{{ _('Es sind noch keine Spektralbereiche hinterlegt')}}</h4>
     {% else %}
 
     <table class="table">
         <thead>
         <tr>
-            <th scope="col">Start [cm<sup>-1</sup>]</th>
-            <th>Ende [cm<sup>-1</sup>]</th>
-            <th>Aktionen</th>
+            <th scope="col">{{ _('Start [cm<sup>-1</sup>]')}}</th>
+            <th>{{ _('Ende [cm<sup>-1</sup>]')}}</th>
+            <th>{{ _('Aktionen') }}</th>
         </tr>
         </thead>
         <tbody>
@@ -36,10 +36,10 @@
             <td>
                 <a type="button" class="btn btn-outline-primary btn-sm"
                    href="{{ url_for('spectral_ranges.edit', spectral_range_id=spectral_range.id) }}"><i
-                        class="bi bi-pencil-fill"></i> Bearbeiten</a>
+                        class="bi bi-pencil-fill"></i> {{ _('Bearbeiten') }}</a>
                 <a type="button" class="btn btn-outline-danger btn-sm"
                    href="{{ url_for('spectral_ranges.delete', spectral_range_id=spectral_range.id) }}"><i
-                        class="bi bi-trash-fill"></i> Löschen</a>
+                        class="bi bi-trash-fill"></i> {{ _('Löschen')}}</a>
             </td>
         </tr>
         {% endfor %}

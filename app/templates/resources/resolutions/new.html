@@ -7,9 +7,9 @@
        style="--bs-icon-link-transform: translate3d(-.125rem, 0, 0); --bs-link-color-rgb: 97,100,102;"
        href="{{ url_for('resolutions.index') }}">
         <i class="bi bi-arrow-left mb-auto"></i>
-        Zurück
+        {{ _('Zurück')}}
     </a>
-    <h1>Neue Auflösung erstellen</h1>
+    <h1>{{ _('Neue Auflösung erstellen')}}</h1>
     {% include 'includes/errors.html' %}
 
     <form method="POST" novalidate>
@@ -27,7 +27,7 @@
             </div>
             {% endif %}
         </div>
-        <button type="submit" class="btn btn-primary">Erstellen</button>
+        <button type="submit" class="btn btn-primary">{{ _('Erstellen') }}</button>
     </form>
 </div>
 {% endblock %}

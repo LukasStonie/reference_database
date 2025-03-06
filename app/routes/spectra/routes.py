@@ -5,6 +5,7 @@ import pandas as pd
 import sqlalchemy.exc
 from flask import render_template, request, url_for, flash, redirect, send_file
 from flask_login import login_required
+from flask_babel import _
 from werkzeug.datastructures import FileStorage
 
 from app.business_logic import convert
@@ -147,12 +148,12 @@ def new_post(compound_id):
     # check if the spectrum is preprocessed, that preprocessing steps are selected
     if int(form.spectrum_type.data) == 2:
         if preprocessing_steps == []:
-            flash('Bitte wählen Sie mindestens einen Vorverarbeitungsschritt aus', 'danger')
+            flash(_('Bitte wählen Sie mindestens einen Vorverarbeitungsschritt aus'), 'danger')
             return render_template('resources/spectra/new.html', form=form, compound_id=compound_id)
 
     # check if the form is valid
     if not form.validate() or file.filename == '':
-        flash('Bitte füllen Sie alle Felder einschließlich der Datei aus', 'danger')
+        flash(_('Bitte füllen Sie alle Felder einschließlich der Datei aus'), 'danger')
         return render_template('resources/spectra/new.html', form=form, compound_id=compound_id)
 
     try:
@@ -175,7 +176,7 @@ def new_post(compound_id):
         db.session.commit()
         return redirect(url_for('compounds.show', compound_id=compound_id))
     except sqlalchemy.exc.IntegrityError as e:
-        flash('Spektrum konnte nicht hinzugefügt werden, da diese Konfiguration für die Substanz schon existiert',
+        flash(_('Spektrum konnte nicht hinzugefügt werden, da diese Konfiguration für die Substanz schon existiert'),
               'danger')
         return render_template('resources/spectra/new.html', form=form, compound_id=compound_id)
     except Exception as e:
@@ -265,12 +266,12 @@ def edit_post(spectrum_id):
     # check if the spectrum is preprocessed, that preprocessing steps are selected
     if int(form.spectrum_type.data) == 2:
         if preprocessing_steps == []:
-            flash('Bitte wählen Sie mindestens einen Vorverarbeitungsschritt aus', 'danger')
+            flash(_('Bitte wählen Sie mindestens einen Vorverarbeitungsschritt aus'), 'danger')
             return render_template('resources/spectra/new.html', form=form, compound_id=spectrum.compound_id)
 
     # check if the form is valid
     if not form.validate():
-        flash('Bitte füllen Sie alle Felder einschließlich der Datei aus', 'danger')
+        flash(_('Bitte füllen Sie alle Felder einschließlich der Datei aus'), 'danger')
         return render_template('resources/spectra/edit.html', form=form, compound_id=spectrum.compound_id)
 
     try:
@@ -302,7 +303,7 @@ def edit_post(spectrum_id):
         db.session.commit()
         return redirect(url_for('compounds.show', compound_id=spectrum.compound_id))
     except sqlalchemy.exc.IntegrityError as e:
-        flash('Spektrum konnte nicht hinzugefügt werden, da diese Konfiguration für die Substanz schon existiert',
+        flash(_('Spektrum konnte nicht hinzugefügt werden, da diese Konfiguration für die Substanz schon existiert'),
               'danger')
         return render_template('resources/spectra/edit.html', form=form, compound_id=spectrum.compound_id)
     except Exception as e:
@@ -335,10 +336,10 @@ def delete(spectrum_id):
         # remove spectrum from filesystem
         utils.remove_spectrum(spectrum.file_path)
         db.session.commit()
-        flash("Spektrum wurde gelöscht", 'success')
+        flash(_("Spektrum wurde gelöscht"), 'success')
         return redirect(url_for('compounds.show', compound_id=compound_id))
     except:
-        flash("Spektrum konnte nicht gelöscht werden", 'danger')
+        flash(_("Spektrum konnte nicht gelöscht werden"), 'danger')
         db.session.rollback()
         return redirect(url_for('compounds.show', compound_id=compound_id))
 

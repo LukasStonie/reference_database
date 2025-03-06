@@ -7,13 +7,13 @@
        style="--bs-icon-link-transform: translate3d(-.125rem, 0, 0); --bs-link-color-rgb: 97,100,102;"
        href="{{ url_for('compounds.show', compound_id=compound_id) }}">
         <i class="bi bi-arrow-left mb-auto"></i>
-        Zurück
+        {{ _('Zurück')}}
     </a>
-    <h1 class="mb-3">Spektrum hinzufügen</h1>
+    <h1 class="mb-3">{{ _('Spektrum hinzufügen')}}</h1>
     {% include 'includes/errors.html' %}
     <form method="POST" enctype="multipart/form-data" novalidate>
         {{ form.csrf_token }}
-        <h5>Welche Art von Spektrum möchten Sie hinzufügen?</h5>
+        <h5>{{ _('Welche Art von Spektrum möchten Sie hinzufügen?')}}</h5>
         <div class="mb-3">
             {% for choice in form.spectrum_type.choices %}
             <input type="radio" class="btn-check my-1" value="{{choice[0]}}" id="type_radio_{{choice[0]}}"
@@ -25,7 +25,7 @@
         <div class="row">
             <div class="col-6">
                 <div id="preprocessing_steps" class="mb-3" style="display: none">
-                    <label class="form-label">Vorverarbeitungsschritte (Auswahl)</label>
+                    <label class="form-label">{{ _('Vorverarbeitungsschritte (Auswahl)') }}</label>
                     <div>
                         {% for choice in form.preprocessing_steps.choices %}
                         <input type="checkbox" class="btn-check my-1" id="step_check_{{choice[0]}}" name="step_check"
@@ -38,14 +38,14 @@
                     </div>
                 </div>
                 <div class="mb-3">
-                    <label for="spectrum" class="form-label">Spektrum</label>
+                    <label for="spectrum" class="form-label">{{ _('Spektrum') }}</label>
                     <input class="form-control" type="file" id="spectrum" name="spectrum">
                 </div>
 
 
             </div>
         </div>
-        <button type="submit" class="btn btn-primary my-2">Spektrum hinzufügen</button>
+        <button type="submit" class="btn btn-primary my-2">{{ _('Spektrum hinzufügen')}}</button>
 
     </form>
 </div>

@@ -4,6 +4,7 @@ from app.routes.main import bp
 from flask_login import login_required, current_user
 
 
+
 @bp.route('/')
 @bp.route('/index')
 def index():
@@ -13,4 +14,5 @@ def index():
     Returns:
         rendered template of the start page
     """
+    print(g.lang_code)
     return render_template('index.html', name=current_user)

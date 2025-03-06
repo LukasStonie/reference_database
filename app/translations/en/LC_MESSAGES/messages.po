@@ -1,0 +1,1437 @@
+# English translations for PROJECT.
+# Copyright (C) 2025 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2025-03-05 11:54+0100\n"
+"PO-Revision-Date: 2025-02-28 12:26+0100\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.11.0\n"
+
+#: app/forms/forms.py:31 app/templates/resources/admins/index.html:25
+#: app/templates/resources/admins/index.html:60
+msgid "Vorname"
+msgstr "First name"
+
+#: app/forms/forms.py:32 app/templates/resources/admins/index.html:26
+#: app/templates/resources/admins/index.html:61
+msgid "Nachname"
+msgstr "Last name"
+
+#: app/forms/forms.py:33 app/forms/forms.py:51
+#: app/templates/resources/admins/index.html:27
+#: app/templates/resources/admins/index.html:62
+msgid "E-Mail"
+msgstr "E-mail"
+
+#: app/forms/forms.py:34 app/forms/forms.py:52
+msgid "Passwort"
+msgstr "Password"
+
+#: app/forms/forms.py:37
+msgid "Passwörter stimmen nicht überein"
+msgstr "Re-entered password does not match"
+
+#: app/forms/forms.py:38
+msgid "Passwort wiederholen"
+msgstr "Re-enter password"
+
+#: app/forms/forms.py:64 app/templates/resources/lenses/index.html:28
+msgid "Zoom"
+msgstr "Zoom"
+
+#: app/forms/forms.py:64
+msgid "Bitte geben Sie eine Vergößerung ein"
+msgstr "Please provide a zoom"
+
+#: app/forms/forms.py:65 app/templates/resources/lenses/index.html:29
+msgid "Numerische Apertur"
+msgstr "Numerical aperture"
+
+#: app/forms/forms.py:66
+msgid "Bitte geben Sie eine numerische Apertur ein"
+msgstr "Please provide a numerical aperture"
+
+#: app/forms/forms.py:78 app/templates/resources/lasers/index.html:26
+msgid "Wellenlänge [nm]"
+msgstr "Wavelength [nm]"
+
+#: app/forms/forms.py:79
+msgid "Bitte geben Sie eine Wellenlänge an"
+msgstr "Please provide a wavelength"
+
+#: app/forms/forms.py:89 app/templates/resources/apertures/index.html:27
+msgid "Größe [µm]"
+msgstr "Size [µm]"
+
+#: app/forms/forms.py:89
+msgid "Bitte geben Sie eine Größe an"
+msgstr "Please provide a size"
+
+#: app/forms/forms.py:99 app/forms/forms.py:123 app/forms/forms.py:134
+#: app/forms/forms.py:145 app/forms/forms.py:157 app/forms/forms.py:194
+#: app/templates/resources/compounds/index.html:26
+#: app/templates/resources/preprocessing_steps/index.html:26
+#: app/templates/resources/resolutions/index.html:26
+#: app/templates/resources/slides/index.html:26
+#: app/templates/resources/spectra_types/index.html:25
+#: app/templates/resources/substrates/index.html:24
+msgid "Bezeichnung"
+msgstr "Name"
+
+#: app/forms/forms.py:99 app/forms/forms.py:124 app/forms/forms.py:135
+#: app/forms/forms.py:145 app/forms/forms.py:157 app/forms/forms.py:194
+msgid "Bitte geben Sie eine Bezeichnung an"
+msgstr "Please provide a name"
+
+#: app/forms/forms.py:112
+msgid "Bitte geben Sie einen Startwert an"
+msgstr "Please provide a start value"
+
+#: app/forms/forms.py:113
+msgid "Ende [cm^-1]"
+msgstr "End [cm^-1]"
+
+#: app/forms/forms.py:113
+msgid "Bitte geben Sie einen Endwert an"
+msgstr "Please provide an end value"
+
+#: app/forms/forms.py:158
+msgid "Anleitung"
+msgstr "Instruction"
+
+#: app/forms/forms.py:195 app/templates/resources/compounds/show.html:23
+msgid "Koaddition"
+msgstr "Coaddition"
+
+#: app/forms/forms.py:196
+msgid "Bitte geben Sie eine Koaddition an"
+msgstr "Please provide a coaddition"
+
+#: app/forms/forms.py:197 app/templates/resources/compounds/show.html:27
+msgid "Integrationszeit [ms]"
+msgstr "Integration time [ms]"
+
+#: app/forms/forms.py:198
+msgid "Bitte geben Sie eine Integrationszeit an"
+msgstr "Please provide an integration time"
+
+#: app/forms/forms.py:199 app/templates/resources/compounds/show.html:31
+msgid "Laserleistung [mW]"
+msgstr "Laser output [mW]"
+
+#: app/forms/forms.py:200
+msgid "Bitte geben Sie eine Laserleistung an"
+msgstr "Please provide a laser output"
+
+#: app/forms/forms.py:201 app/forms/forms.py:264
+#: app/templates/resources/compounds/index.html:28
+#: app/templates/resources/compounds/show.html:81
+#: app/templates/resources/compounds/show.html:83
+#: app/templates/resources/intensities/index.html:26
+msgid "Beschreibung"
+msgstr "Description"
+
+#: app/forms/forms.py:203 app/templates/resources/compounds/show.html:41
+#: app/templates/resources/lenses/edit.html:12
+#: app/templates/resources/lenses/new.html:13
+msgid "Objektiv"
+msgstr "Lense"
+
+#: app/forms/forms.py:204
+msgid "Bitte wählen Sie ein Objektiv aus"
+msgstr "Please select a lense"
+
+#: app/forms/forms.py:205 app/templates/includes/nav.html:21
+#: app/templates/resources/lasers/index.html:10
+#: app/templates/resources/lasers/new.html:13
+msgid "Laser"
+msgstr "Laser"
+
+#: app/forms/forms.py:206
+msgid "Bitte wählen Sie einen Laser aus"
+msgstr "Please select a laser"
+
+#: app/forms/forms.py:207 app/templates/resources/compounds/show.html:49
+msgid "Apertur [µm]"
+msgstr "Aperture [µm]"
+
+#: app/forms/forms.py:208
+msgid "Bitte wählen Sie eine Apertur aus"
+msgstr "Please select an aperture"
+
+#: app/forms/forms.py:209 app/templates/includes/nav.html:23
+#: app/templates/resources/compounds/show.html:70
+#: app/templates/resources/slides/index.html:10
+#: app/templates/resources/slides/new.html:12
+msgid "Objektträger"
+msgstr "Microscope slide"
+
+#: app/forms/forms.py:210
+msgid "Bitte wählen Sie einen Objektträger aus"
+msgstr "Please select a microscope slide"
+
+#: app/forms/forms.py:211 app/templates/resources/spectral_ranges/edit.html:12
+#: app/templates/resources/spectral_ranges/index.html:10
+#: app/templates/resources/spectral_ranges/new.html:12
+msgid "Spektralbereich"
+msgstr "Spectral range"
+
+#: app/forms/forms.py:212
+msgid "Bitte wählen Sie einen Spektralbereich aus"
+msgstr "Please select a spectral range"
+
+#: app/forms/forms.py:213 app/templates/resources/compounds/show.html:66
+msgid "Auflösung"
+msgstr "Resolution"
+
+#: app/forms/forms.py:214
+msgid "Bitte wählen Sie eine Auflösung aus"
+msgstr "Please select a resolution"
+
+#: app/forms/forms.py:215 app/templates/resources/compounds/show.html:74
+#: app/templates/resources/substrates/edit.html:12
+#: app/templates/resources/substrates/new.html:13
+msgid "Substrat"
+msgstr "Substrate"
+
+#: app/forms/forms.py:217 app/templates/resources/apertures/new.html:13
+#: app/templates/resources/apertures/new.html:30
+#: app/templates/resources/auth/signup.html:88
+#: app/templates/resources/compounds/new.html:12
+#: app/templates/resources/intensities/new.html:13
+#: app/templates/resources/intensities/new.html:44
+#: app/templates/resources/lasers/new.html:13
+#: app/templates/resources/lasers/new.html:31
+#: app/templates/resources/lenses/edit.html:42
+#: app/templates/resources/lenses/new.html:13
+#: app/templates/resources/lenses/new.html:43
+#: app/templates/resources/peaks/new.html:13
+#: app/templates/resources/peaks/new.html:39
+#: app/templates/resources/preprocessing_steps/edit.html:29
+#: app/templates/resources/preprocessing_steps/new.html:12
+#: app/templates/resources/preprocessing_steps/new.html:29
+#: app/templates/resources/query/index.html:10
+#: app/templates/resources/ramanband_categories/new.html:12
+#: app/templates/resources/ramanband_categories/new.html:29
+#: app/templates/resources/ramanbands/new.html:12
+#: app/templates/resources/ramanbands/new.html:102
+#: app/templates/resources/resolutions/edit.html:29
+#: app/templates/resources/resolutions/new.html:30
+#: app/templates/resources/slides/edit.html:30
+#: app/templates/resources/slides/new.html:12
+#: app/templates/resources/slides/new.html:30
+#: app/templates/resources/spectra_types/edit.html:29
+#: app/templates/resources/spectra_types/new.html:12
+#: app/templates/resources/spectra_types/new.html:29
+#: app/templates/resources/spectral_ranges/edit.html:44
+#: app/templates/resources/spectral_ranges/new.html:12
+#: app/templates/resources/spectral_ranges/new.html:44
+#: app/templates/resources/substrates/new.html:13
+#: app/templates/resources/substrates/new.html:44
+msgid "Erstellen"
+msgstr "Create"
+
+#: app/forms/forms.py:218
+msgid "Erstellen und Spektrum hinzufügen"
+msgstr "Create entry and add spectrum"
+
+#: app/forms/forms.py:230 app/forms/forms.py:246
+#: app/templates/resources/compounds/show.html:131
+msgid "Spektrumart"
+msgstr "Spectrum type"
+
+#: app/forms/forms.py:231 app/forms/forms.py:247
+msgid "Bitte wählen Sie einen Spektrumtyp aus"
+msgstr "Please select a spectrum type"
+
+#: app/forms/forms.py:232 app/forms/forms.py:248
+#: app/templates/resources/compounds/show.html:162
+msgid "Vorverarbeitung"
+msgstr "Preprocessing"
+
+#: app/forms/forms.py:249
+msgid "Spektrum austauschen"
+msgstr "Replace spectrum"
+
+#: app/forms/forms.py:261
+msgid "Kürzel"
+msgstr "Abbreviation"
+
+#: app/forms/forms.py:261
+msgid "Bitte geben Sie ein Kürzel an"
+msgstr "Please provide an abbreviation"
+
+#: app/forms/forms.py:263
+msgid "Das Kürzel darf maximal drei Zeichen lang sein"
+msgstr "The abbreviation may be at most three characters long"
+
+#: app/forms/forms.py:265
+msgid "Bitte geben Sie eine Beschreibung an"
+msgstr "Please provide a description"
+
+#: app/forms/forms.py:275 app/forms/forms.py:297
+#: app/templates/resources/intensities/edit.html:13
+#: app/templates/resources/intensities/new.html:13
+#: app/templates/resources/peaks/edit.html:30
+#: app/templates/resources/peaks/new.html:27
+#: app/templates/resources/ramanbands/index.html:28
+msgid "Intensität"
+msgstr "Intensity"
+
+#: app/forms/forms.py:276
+msgid "Bitte wählen Sie eine Intesität aus."
+msgstr "Please select an intensity"
+
+#: app/forms/forms.py:286
+msgid "Toleranz"
+msgstr "Tolerance"
+
+#: app/forms/forms.py:287
+msgid "Bitte geben Sie einen Toleranzbereich an."
+msgstr "Please provide a tolerance."
+
+#: app/forms/forms.py:291 app/forms/forms.py:308
+#: app/templates/resources/query/index.html:39
+msgid "Wellenzahl"
+msgstr "Wavenumber"
+
+#: app/forms/forms.py:292
+msgid "Bitte geben Sie eine Wellenzahl an."
+msgstr "Please provide a wavenumber"
+
+#: app/forms/forms.py:293 app/forms/forms.py:310
+#: app/templates/resources/ramanbands/index.html:26
+#: app/templates/resources/ramanbands/query.html:70
+msgid "Schwingungsart"
+msgstr "Type of vibration"
+
+#: app/forms/forms.py:294
+msgid "Bitte geben Sie eine Schwingungsart an."
+msgstr "Please provide a type of vibration."
+
+#: app/forms/forms.py:295 app/forms/forms.py:304 app/forms/forms.py:309
+#: app/templates/resources/ramanband_categories/index.html:27
+#: app/templates/resources/ramanbands/index.html:27
+#: app/templates/resources/ramanbands/query.html:71
+msgid "Kategorie"
+msgstr "Category"
+
+#: app/forms/forms.py:296 app/forms/forms.py:304
+msgid "Bitte geben Sie eine Kategorie an."
+msgstr "Please provide a category."
+
+#: app/forms/forms.py:298
+msgid "Bitte geben Sie eine Amplitude an."
+msgstr "Please provide an amplitude."
+
+#: app/forms/forms.py:299
+msgid "Autor"
+msgstr "Author"
+
+#: app/forms/forms.py:300 app/templates/resources/ramanbands/index.html:29
+#: app/templates/resources/ramanbands/query.html:73
+msgid "DOI"
+msgstr "DOI"
+
+#: app/routes/admin/routes.py:29
+msgid "Sie haben keine Berechtigung für diese Seite."
+msgstr "You do not have permission to access this site"
+
+#: app/routes/admin/routes.py:68 app/routes/auth/routes.py:40
+msgid "Diese E-Mail-Adresse ist bereits vergeben"
+msgstr "This e-mail address is already in use"
+
+#: app/routes/admin/routes.py:85
+msgid "Der Account wurde erfolgreich erstellt."
+msgstr "Your account was created successfully"
+
+#: app/routes/admin/routes.py:120
+msgid "User ist bereits aktiviert"
+msgstr "User is already enabled"
+
+#: app/routes/admin/routes.py:124
+msgid "User wurde aktiviert"
+msgstr "User was enabled"
+
+#: app/routes/admin/routes.py:127
+msgid "User konnte nicht aktiviert werden"
+msgstr "User could not be enabled"
+
+#: app/routes/admin/routes.py:147
+msgid "User ist bereits deaktiviert"
+msgstr "User is already disabled"
+
+#: app/routes/admin/routes.py:150
+msgid "Sie können sich nicht selbst deaktivieren"
+msgstr "You cannot disable yourself"
+
+#: app/routes/admin/routes.py:154
+msgid "User wurde deaktiviert"
+msgstr "User was disabled"
+
+#: app/routes/admin/routes.py:157
+msgid "User konnte nicht deaktiviert werden"
+msgstr "User could not be disabled"
+
+#: app/routes/admin/routes.py:176
+msgid "Sie können sich nicht selbst löschen"
+msgstr "You cannot delete yourself"
+
+#: app/routes/admin/routes.py:180
+msgid "User wurde gelöscht"
+msgstr "User was deleted"
+
+#: app/routes/admin/routes.py:183
+msgid "User konnte nicht gelöscht werden"
+msgstr "Could not delete user"
+
+#: app/routes/apertures/routes.py:66 app/routes/apertures/routes.py:115
+msgid "Diese Größe existiert bereits"
+msgstr "This size already exists"
+
+#: app/routes/apertures/routes.py:135
+msgid "Apertur wurde gelöscht"
+msgstr "Aperture was deleted"
+
+#: app/routes/apertures/routes.py:138
+msgid "Diese Apertur wird noch verwendet und kann daher nicht gelöscht werden."
+msgstr "This aperture is still in use and cannot be deleted."
+
+#: app/routes/apertures/routes.py:141
+msgid "Apertur konnte nicht gelöscht werden. Probieren Sie es später erneut."
+msgstr "Aperture could not be deleted, please try again later."
+
+#: app/routes/auth/routes.py:57
+msgid ""
+"Ihr Account wurde erfolgreich erstellt. Bitte warten Sie auf die "
+"Freischaltung durch einen Administrator."
+msgstr ""
+"Your account was successfully created. Please wait for the admin to "
+"enable you."
+
+#: app/routes/auth/routes.py:93
+msgid ""
+"Ihr Account wurde noch nicht freigeschaltet. Wenden Sie sich an einen "
+"Administrator."
+msgstr "Your account is not yet enabled. Please contact an admin."
+
+#: app/routes/auth/routes.py:98
+msgid ""
+"Bitte überprüfen Sie ihre Eingaben. E-Mail und Passwort stimmen nicht "
+"überein    "
+msgstr "Please check your inputs. E-mail or password not correct"
+
+#: app/routes/compounds/routes.py:88 app/routes/compounds/routes.py:178
+#: app/routes/intensities/routes.py:64 app/routes/intensities/routes.py:115
+#: app/routes/preprocessing_steps/routes.py:63
+#: app/routes/preprocessing_steps/routes.py:112
+#: app/routes/resolutions/routes.py:63 app/routes/resolutions/routes.py:111
+#: app/routes/slides/routes.py:63 app/routes/slides/routes.py:111
+#: app/routes/spectra_types/routes.py:62 app/routes/spectra_types/routes.py:112
+#: app/routes/substrates/routes.py:70 app/routes/substrates/routes.py:127
+msgid "Diese Bezeichnung existiert bereits"
+msgstr "This name already exists"
+
+#: app/routes/compounds/routes.py:204
+msgid "Substanz wurde gelöscht"
+msgstr "Substance was deleted"
+
+#: app/routes/compounds/routes.py:207
+msgid "Substanz konnte nicht gelöscht werden. Probieren Sie es später erneut."
+msgstr "Substance could not be deleted, please try again later."
+
+#: app/routes/compounds/routes.py:277
+#: app/templates/resources/compounds/show.html:75
+msgid "Keines"
+msgstr "None"
+
+#: app/routes/intensities/routes.py:137
+msgid "Diese Intensität wird noch verwendet und kann daher nicht gelöscht werden."
+msgstr "This intensity is still in use and cannot be deleted"
+
+#: app/routes/intensities/routes.py:140
+msgid "Intensität konnte nicht gelöscht werden. Probieren Sie es später erneut."
+msgstr "Intensity could not be deleted, please try again later."
+
+#: app/routes/lasers/routes.py:63 app/routes/lasers/routes.py:111
+msgid "Diese Wellenlänge existiert bereits"
+msgstr "This wavelength already exists"
+
+#: app/routes/lasers/routes.py:131
+msgid "Laser wurde gelöscht"
+msgstr "Laser was deleted"
+
+#: app/routes/lasers/routes.py:134
+msgid "Dieser Laser wird noch verwendet und kann daher nicht gelöscht werden."
+msgstr "This laser is still in use and cannot be deleted."
+
+#: app/routes/lasers/routes.py:137
+msgid "Laser konnte nicht gelöscht werden. Probieren Sie es später erneut."
+msgstr "Laser could not be deleted, please try again later."
+
+#: app/routes/lenses/routes.py:66
+msgid "Diese Kombination aus Zoom und numerischer Apertur existiert bereits"
+msgstr "The combination of zoom and numerical aperture already exists"
+
+#: app/routes/lenses/routes.py:116
+msgid "Diese Kombination aus Zoom und numerischer Apertur existiert bereits."
+msgstr "The combination of zoom and numerical aperture already exists"
+
+#: app/routes/lenses/routes.py:136
+msgid "Objektiv wurde gelöscht"
+msgstr "Lense was deleted"
+
+#: app/routes/lenses/routes.py:139
+msgid "Dieses Objektiv wird noch verwendet und kann daher nicht gelöscht werden."
+msgstr "This lense is still in use and cannot be deleted."
+
+#: app/routes/lenses/routes.py:142
+msgid "Objektiv konnte nicht gelöscht werden. Probieren Sie es später erneut."
+msgstr "Lense could not be deleted, please try again later."
+
+#: app/routes/peaks/routes.py:39
+msgid "Es existiert bereits ein Peak-Spektrum für diese Substanz"
+msgstr "A peak-spectrum for this substance already exists"
+
+#: app/routes/peaks/routes.py:212
+msgid "Peak-Spektrum wurde erstellt"
+msgstr "Peak-spectrum was created"
+
+#: app/routes/peaks/routes.py:215 app/routes/peaks/routes.py:268
+msgid "Es ist ein Fehler aufgetreten"
+msgstr "An error occurred"
+
+#: app/routes/peaks/routes.py:265
+msgid "Peak-Spektrum wurde aktualisiert"
+msgstr "Peak-spectrum was updated"
+
+#: app/routes/preprocessing_steps/routes.py:137
+msgid "Vorverarbeitungsschritt wurde gelöscht"
+msgstr "Preprocessing step was deleted"
+
+#: app/routes/preprocessing_steps/routes.py:140
+msgid ""
+"Dieser Vorverarbeitungsschritt wird noch verwendet und kann daher nicht "
+"gelöscht werden."
+msgstr "This preprocessing step is still in use and cannot be deleted."
+
+#: app/routes/preprocessing_steps/routes.py:143
+msgid "Vorverarbeitungsschritt konnte nicht gelöscht werden."
+msgstr "Preprocessing step could not be deleted."
+
+#: app/routes/query/routes.py:56
+msgid "Bitte geben Sie mindestens eine Wellenzahl an."
+msgstr "Please provide at least one wavenumber"
+
+#: app/routes/ramanbands/routes.py:86
+#: app/routes/ramanbands_categories/routes.py:54
+#: app/routes/ramanbands_categories/routes.py:104
+msgid "Diese Kategorie existiert bereits"
+msgstr "This category already exists"
+
+#: app/routes/ramanbands/routes.py:155
+msgid "Dieses Raman-Band existiert bereits"
+msgstr "This Raman band already exists"
+
+#: app/routes/ramanbands/routes.py:175
+msgid "Raman-Band wurde gelöscht"
+msgstr "Raman band was deleted"
+
+#: app/routes/ramanbands/routes.py:178
+msgid ""
+"Dieses Raman-Band wird noch verwendet und kann daher nicht gelöscht "
+"werden."
+msgstr "This Raman band is still in use and cannot be deleted."
+
+#: app/routes/ramanbands/routes.py:181
+msgid "Raman-Band konnte nicht gelöscht werden. Probieren Sie es später erneut."
+msgstr "Raman band could not be deleted, please try again later."
+
+#: app/routes/ramanbands_categories/routes.py:122
+msgid "Kategorie wurde gelöscht"
+msgstr "Category was deleted"
+
+#: app/routes/ramanbands_categories/routes.py:125
+msgid "Diese Kategorie wird noch verwendet und kann daher nicht gelöscht werden."
+msgstr "This category is still in use and cannot be deleted."
+
+#: app/routes/ramanbands_categories/routes.py:128
+msgid "Kategorie konnte nicht gelöscht werden. Probieren Sie es später erneut."
+msgstr "Category could not be deleted, please try again later."
+
+#: app/routes/resolutions/routes.py:131
+msgid "Auflösung wurde gelöscht"
+msgstr "Resolution was deleted"
+
+#: app/routes/resolutions/routes.py:134
+msgid "Diese Auflösung wird noch verwendet und kann daher nicht gelöscht werden."
+msgstr "Die resolution is still in use and cannot be deleted."
+
+#: app/routes/resolutions/routes.py:137
+msgid "Auflösung konnte nicht gelöscht werden. Probieren Sie es später erneut."
+msgstr "Resolution could not be deleted, please try again later."
+
+#: app/routes/slides/routes.py:131
+msgid "Objektträger wurde gelöscht"
+msgstr "Microscope slide was deleted"
+
+#: app/routes/slides/routes.py:134
+msgid ""
+"Dieser Objektträger wird noch verwendet und konnte daher nicht gelöscht "
+"werden."
+msgstr "Microscope slide is still in use and cannot be deleted."
+
+#: app/routes/slides/routes.py:137
+msgid "Objektträger konnte nicht gelöscht werden."
+msgstr "Microscope slide could not be deleted, please try again later."
+
+#: app/routes/spectra/routes.py:151 app/routes/spectra/routes.py:269
+msgid "Bitte wählen Sie mindestens einen Vorverarbeitungsschritt aus"
+msgstr "Please select at least one preprocessing step"
+
+#: app/routes/spectra/routes.py:156 app/routes/spectra/routes.py:274
+msgid "Bitte füllen Sie alle Felder einschließlich der Datei aus"
+msgstr "Please fill out each field and attach a file containing the spectrum"
+
+#: app/routes/spectra/routes.py:179 app/routes/spectra/routes.py:306
+msgid ""
+"Spektrum konnte nicht hinzugefügt werden, da diese Konfiguration für die "
+"Substanz schon existiert"
+msgstr ""
+"Could not add the spectrum to the substance, since the configuration "
+"already exists"
+
+#: app/routes/spectra/routes.py:339
+msgid "Spektrum wurde gelöscht"
+msgstr "Spectrum was deleted"
+
+#: app/routes/spectra/routes.py:342
+msgid "Spektrum konnte nicht gelöscht werden"
+msgstr "Spectrum could not be deleted"
+
+#: app/routes/spectra_types/routes.py:132
+msgid "Spektrumart wurde gelöscht"
+msgstr "Spectrum type was deleted"
+
+#: app/routes/spectra_types/routes.py:135
+msgid ""
+"Diese Spektrumart wird noch verwendet und kann daher nicht gelöscht "
+"werden."
+msgstr "This spectrum type is still in use and cannot be deleted."
+
+#: app/routes/spectra_types/routes.py:138
+msgid "Spektrumart konnte nicht gelöscht werden. Probieren Sie es später erneut."
+msgstr "Spectrum type could be deleted, please try again later."
+
+#: app/routes/spectral_ranges/routes.py:63
+#: app/routes/spectral_ranges/routes.py:114
+msgid "Diese Kombination aus Start und Ende existiert bereits"
+msgstr "This combination of start and end already exists"
+
+#: app/routes/spectral_ranges/routes.py:134
+msgid "Spektralbereich wurde gelöscht"
+msgstr "Spectral range was deleted"
+
+#: app/routes/spectral_ranges/routes.py:137
+msgid ""
+"Dieser Spektralbereich wird noch verwendet und konnte daher nicht "
+"gelöscht werden"
+msgstr "This spectral range is still in use and cannot be deleted."
+
+#: app/routes/spectral_ranges/routes.py:140
+msgid ""
+"Spektralbereich konnte nicht gelöscht werden. Probieren Sie es später "
+"erneut."
+msgstr "Spectral range could not be deleted, please try again later"
+
+#: app/routes/substrates/routes.py:152
+msgid "Substrat wurde gelöscht"
+msgstr "Substrate was deleted"
+
+#: app/routes/substrates/routes.py:155
+msgid "Dieses Substrat wird noch verwendet und kann daher nicht gelöscht werden"
+msgstr "This substrate is still in use and cannot be deleted"
+
+#: app/routes/substrates/routes.py:158
+msgid "Substrat kann nicht gelöscht werden"
+msgstr "Substrate could not be deleted"
+
+#: app/templates/index.html:17
+msgid "Speichern Nachschlagen Abfragen"
+msgstr "Save Look-up Query"
+
+#: app/templates/index.html:22
+msgid "Referenzdatenbank für Raman-Spektren"
+msgstr "Reference database for Raman spectra"
+
+#: app/templates/index.html:32
+msgid "Fügen Sie eine Referenzsubstanz hinzu"
+msgstr "Add a reference substance"
+
+#: app/templates/index.html:33
+msgid ""
+"Referenzsubstanzen werden dazu verwendet, um bei einer späteren Abfrage "
+"zu identifizieren, welche Substanzen in Frage kommen könnten"
+msgstr ""
+"Reference substances are used to identify possible substances in a later "
+"query"
+
+#: app/templates/index.html:36
+msgid "Referenzsubstanz hinzufügen"
+msgstr "Add reference substance"
+
+#: app/templates/index.html:40
+msgid "Starten Sie eine Abfrage!"
+msgstr "Start a query!"
+
+#: app/templates/index.html:41
+msgid ""
+"Wenn Sie eine Abfrage starten, können Sie mehrere Wellenzahlen eingeben. "
+"Die Datenbank wird anschließend nach Spitzen durchsucht, die in einem "
+"Toleranzbereich um die gegebenen Wellenzahlen liegt."
+msgstr ""
+"When you start a query, you can enter multiple wavenumbers. The database "
+"will then search for peaks that are within a tolerance range around the "
+"given wavenumbers."
+
+#: app/templates/index.html:44
+msgid "Abfrage starten"
+msgstr "Start query"
+
+#: app/templates/index.html:51
+msgid "Melden Sie sich an!"
+msgstr "Log into your account!"
+
+#: app/templates/index.html:52
+msgid ""
+"Sie können Referenzsubstanzen nur hinzufügen bzw. Abfragen nur starten "
+"wenn Sie angemeldet sind!"
+msgstr ""
+"You can only add reference substances or start queries if you are logged "
+"in!"
+
+#: app/templates/includes/nav.html:89 app/templates/index.html:54
+#: app/templates/resources/auth/login.html:12
+#: app/templates/resources/auth/login.html:48
+msgid "Anmelden"
+msgstr "Log in"
+
+#: app/templates/index.html:58
+msgid "Registrieren Sie sich!"
+msgstr "Sign up for an account!"
+
+#: app/templates/index.html:59
+msgid ""
+"Um sich anmelden zu können, müssen Sie sich zuerst registrieren.<br>Ihr "
+"Account muss jedoch zuerst von einem Administrator freigeschaltet werden"
+msgstr ""
+"To log in, you must first register.<br>Your account must be enabled by an"
+" admin first"
+
+#: app/templates/index.html:61
+msgid "Registrieren"
+msgstr "Sign up"
+
+#: app/templates/includes/backToStart.html:7
+#: app/templates/resources/apertures/edit.html:10
+#: app/templates/resources/apertures/new.html:10
+#: app/templates/resources/compounds/edit.html:10
+#: app/templates/resources/compounds/new.html:10
+#: app/templates/resources/compounds/show.html:10
+#: app/templates/resources/intensities/edit.html:10
+#: app/templates/resources/intensities/new.html:10
+#: app/templates/resources/lasers/edit.html:10
+#: app/templates/resources/lasers/new.html:10
+#: app/templates/resources/lenses/edit.html:10
+#: app/templates/resources/lenses/new.html:10
+#: app/templates/resources/peaks/edit.html:10
+#: app/templates/resources/peaks/new.html:10
+#: app/templates/resources/preprocessing_steps/edit.html:10
+#: app/templates/resources/preprocessing_steps/new.html:10
+#: app/templates/resources/query/result.html:10
+#: app/templates/resources/ramanband_categories/edit.html:10
+#: app/templates/resources/ramanband_categories/new.html:10
+#: app/templates/resources/ramanbands/edit.html:10
+#: app/templates/resources/ramanbands/new.html:10
+#: app/templates/resources/resolutions/edit.html:10
+#: app/templates/resources/resolutions/new.html:10
+#: app/templates/resources/slides/edit.html:10
+#: app/templates/resources/slides/new.html:10
+#: app/templates/resources/spectra/edit.html:10
+#: app/templates/resources/spectra/new.html:10
+#: app/templates/resources/spectra_types/edit.html:10
+#: app/templates/resources/spectra_types/new.html:10
+#: app/templates/resources/spectral_ranges/edit.html:10
+#: app/templates/resources/spectral_ranges/new.html:10
+#: app/templates/resources/substrates/edit.html:10
+#: app/templates/resources/substrates/new.html:11
+msgid "Zurück"
+msgstr "Back"
+
+#: app/templates/includes/nav.html:17
+msgid "Verwaltung"
+msgstr "Resources"
+
+#: app/templates/includes/nav.html:20
+#: app/templates/resources/lenses/index.html:10
+msgid "Objektive"
+msgstr "Lenses"
+
+#: app/templates/includes/nav.html:22
+#: app/templates/resources/apertures/index.html:10
+msgid "Aperturen"
+msgstr "Apertures"
+
+#: app/templates/includes/nav.html:24
+#: app/templates/resources/substrates/index.html:9
+msgid "Substrate"
+msgstr "Substrates"
+
+#: app/templates/includes/nav.html:28
+msgid "Spektralbereiche"
+msgstr "Spectral ranges"
+
+#: app/templates/includes/nav.html:30
+#: app/templates/resources/resolutions/index.html:10
+msgid "Auflösungen"
+msgstr "Resolutions"
+
+#: app/templates/includes/nav.html:34
+#: app/templates/resources/spectra_types/index.html:9
+msgid "Spektrenarten"
+msgstr "Spectrum types"
+
+#: app/templates/includes/nav.html:35
+#: app/templates/resources/preprocessing_steps/index.html:10
+msgid "Vorverarbeitungsschritte"
+msgstr "Preprocessing steps"
+
+#: app/templates/includes/nav.html:40
+#: app/templates/resources/intensities/index.html:9
+msgid "Intensitäten"
+msgstr "Intensities"
+
+#: app/templates/includes/nav.html:44
+#: app/templates/resources/compounds/edit.html:12
+#: app/templates/resources/compounds/index.html:10
+#: app/templates/resources/compounds/new.html:12
+msgid "Referenzsubstanzen"
+msgstr "Reference substances"
+
+#: app/templates/includes/nav.html:46
+#: app/templates/resources/query/index.html:42
+msgid "Abfragen"
+msgstr "Queries"
+
+#: app/templates/includes/nav.html:51
+msgid "Wellenzahl Bibliothek"
+msgstr "Wavenumber library"
+
+#: app/templates/includes/nav.html:55
+msgid "Raman-Banden"
+msgstr "Raman bands"
+
+#: app/templates/includes/nav.html:58
+#: app/templates/resources/ramanband_categories/index.html:10
+msgid "Raman-Banden Kategorien"
+msgstr "Raman band categories"
+
+#: app/templates/includes/nav.html:64
+msgid "Suche"
+msgstr "Search"
+
+#: app/templates/includes/nav.html:76
+msgid "Sprache"
+msgstr "Language"
+
+#: app/templates/includes/nav.html:79
+msgid "Deutsch"
+msgstr "German"
+
+#: app/templates/includes/nav.html:80
+msgid "Englisch"
+msgstr "English"
+
+#: app/templates/includes/nav.html:86
+msgid "Abmelden"
+msgstr "Log out"
+
+#: app/templates/resources/admins/index.html:14
+msgid "Admin erstellen"
+msgstr "Create admin"
+
+#: app/templates/resources/admins/index.html:17
+msgid "Zu aktivierende Benutzer"
+msgstr "Enable users"
+
+#: app/templates/resources/admins/index.html:19
+msgid "Es sind keine inaktiven Benutzer vorhanden"
+msgstr "No disabled users available"
+
+#: app/templates/resources/admins/index.html:28
+#: app/templates/resources/admins/index.html:64
+msgid "Status"
+msgstr "Status"
+
+#: app/templates/resources/admins/index.html:29
+#: app/templates/resources/admins/index.html:65
+#: app/templates/resources/apertures/index.html:28
+#: app/templates/resources/compounds/index.html:29
+#: app/templates/resources/intensities/index.html:27
+#: app/templates/resources/lasers/index.html:27
+#: app/templates/resources/lenses/index.html:30
+#: app/templates/resources/preprocessing_steps/index.html:27
+#: app/templates/resources/ramanband_categories/index.html:28
+#: app/templates/resources/ramanbands/index.html:30
+#: app/templates/resources/resolutions/index.html:27
+#: app/templates/resources/slides/index.html:27
+#: app/templates/resources/spectra_types/index.html:26
+#: app/templates/resources/spectral_ranges/index.html:28
+#: app/templates/resources/substrates/index.html:26
+msgid "Aktionen"
+msgstr "Actions"
+
+#: app/templates/resources/admins/index.html:38
+#: app/templates/resources/admins/index.html:81
+msgid "Aktiv"
+msgstr "Enabled"
+
+#: app/templates/resources/admins/index.html:38
+#: app/templates/resources/admins/index.html:81
+msgid "Inaktiv"
+msgstr "Disabled"
+
+#: app/templates/resources/admins/index.html:43
+msgid "Aktivieren"
+msgstr "Enable"
+
+#: app/templates/resources/admins/index.html:46
+#: app/templates/resources/admins/index.html:89
+#: app/templates/resources/apertures/index.html:43
+#: app/templates/resources/compounds/index.html:52
+#: app/templates/resources/compounds/show.html:156
+#: app/templates/resources/intensities/index.html:42
+#: app/templates/resources/lasers/index.html:39
+#: app/templates/resources/lenses/index.html:44
+#: app/templates/resources/preprocessing_steps/index.html:40
+#: app/templates/resources/ramanband_categories/index.html:44
+#: app/templates/resources/ramanbands/index.html:49
+#: app/templates/resources/resolutions/index.html:40
+#: app/templates/resources/slides/index.html:39
+#: app/templates/resources/spectra_types/index.html:39
+#: app/templates/resources/spectral_ranges/index.html:42
+#: app/templates/resources/substrates/edit.html:36
+#: app/templates/resources/substrates/index.html:50
+msgid "Löschen"
+msgstr "Delete"
+
+#: app/templates/resources/admins/index.html:53
+msgid "Bereits aktive Benutzer"
+msgstr "Already enabled users"
+
+#: app/templates/resources/admins/index.html:55
+msgid "Es sind keine aktiven Benutzer vorhanden"
+msgstr "No enabled users available"
+
+#: app/templates/resources/admins/index.html:63
+msgid "Benutzer-Gruppe"
+msgstr "User group"
+
+#: app/templates/resources/admins/index.html:86
+msgid "Deaktivieren"
+msgstr "Disable"
+
+#: app/templates/resources/apertures/edit.html:12
+#: app/templates/resources/apertures/index.html:39
+#: app/templates/resources/compounds/edit.html:12
+#: app/templates/resources/compounds/index.html:48
+#: app/templates/resources/compounds/show.html:153
+#: app/templates/resources/intensities/edit.html:13
+#: app/templates/resources/intensities/index.html:39
+#: app/templates/resources/lasers/index.html:37
+#: app/templates/resources/lenses/edit.html:12
+#: app/templates/resources/lenses/index.html:41
+#: app/templates/resources/peaks/edit.html:13
+#: app/templates/resources/preprocessing_steps/edit.html:12
+#: app/templates/resources/preprocessing_steps/index.html:37
+#: app/templates/resources/ramanband_categories/edit.html:12
+#: app/templates/resources/ramanband_categories/index.html:40
+#: app/templates/resources/ramanbands/edit.html:12
+#: app/templates/resources/ramanbands/index.html:45
+#: app/templates/resources/resolutions/index.html:37
+#: app/templates/resources/slides/index.html:37
+#: app/templates/resources/spectra_types/edit.html:12
+#: app/templates/resources/spectra_types/index.html:36
+#: app/templates/resources/spectral_ranges/edit.html:12
+#: app/templates/resources/spectral_ranges/index.html:39
+#: app/templates/resources/substrates/edit.html:12
+#: app/templates/resources/substrates/index.html:47
+msgid "Bearbeiten"
+msgstr "Edit"
+
+#: app/templates/resources/apertures/edit.html:12
+#: app/templates/resources/apertures/new.html:13
+msgid "Apertur"
+msgstr "Aperture"
+
+#: app/templates/resources/apertures/edit.html:30
+#: app/templates/resources/compounds/edit.html:179
+#: app/templates/resources/intensities/edit.html:44
+#: app/templates/resources/lasers/edit.html:30
+#: app/templates/resources/peaks/edit.html:44
+#: app/templates/resources/ramanband_categories/edit.html:29
+#: app/templates/resources/ramanbands/edit.html:102
+#: app/templates/resources/substrates/edit.html:55
+msgid "Speichern"
+msgstr "Save"
+
+#: app/templates/resources/apertures/index.html:10
+#: app/templates/resources/compounds/index.html:10
+#: app/templates/resources/intensities/index.html:9
+#: app/templates/resources/lasers/index.html:10
+#: app/templates/resources/lenses/index.html:10
+#: app/templates/resources/preprocessing_steps/index.html:10
+#: app/templates/resources/ramanband_categories/index.html:10
+#: app/templates/resources/ramanbands/index.html:10
+#: app/templates/resources/resolutions/index.html:10
+#: app/templates/resources/slides/index.html:10
+#: app/templates/resources/spectra_types/index.html:9
+#: app/templates/resources/spectral_ranges/index.html:10
+#: app/templates/resources/substrates/index.html:9
+msgid "Übersicht"
+msgstr "Overview"
+
+#: app/templates/resources/apertures/index.html:15
+msgid "Neue Apertur erstellen"
+msgstr "New aperture"
+
+#: app/templates/resources/apertures/index.html:20
+msgid "Es sind noch keine Aperturen hinterlegt"
+msgstr "No apertures available"
+
+#: app/templates/resources/auth/login.html:52
+msgid "Sie haben noch keinen Account?"
+msgstr "No account yet?"
+
+#: app/templates/resources/auth/login.html:53
+msgid "Hier registrieren"
+msgstr "Sign up here"
+
+#: app/templates/resources/auth/signup.html:12
+msgid "Account erstellen"
+msgstr "Create account"
+
+#: app/templates/resources/auth/signup.html:22
+msgid "Max"
+msgstr "John"
+
+#: app/templates/resources/auth/signup.html:36
+msgid "Mustermann"
+msgstr "Doe"
+
+#: app/templates/resources/auth/signup.html:92
+msgid "Sie haben bereits einen Account?"
+msgstr "Already have an account?"
+
+#: app/templates/resources/auth/signup.html:93
+msgid "Hier anmelden"
+msgstr "Log in here"
+
+#: app/templates/resources/compounds/edit.html:19
+#: app/templates/resources/compounds/new.html:19
+msgid "Pyruvat"
+msgstr "Pyruvate"
+
+#: app/templates/resources/compounds/edit.html:97
+#: app/templates/resources/compounds/new.html:97
+#: app/templates/resources/compounds/show.html:62
+msgid "Spektralbereich [cm<sup>-1</sup>]"
+msgstr "Specral range [cm<sup>-1</sup>]"
+
+#: app/templates/resources/compounds/index.html:15
+msgid "Neue Substanz erstellen"
+msgstr "Create new substance"
+
+#: app/templates/resources/compounds/index.html:20
+msgid "Es sind noch keine Substanzen hinterlegt"
+msgstr "No substances available"
+
+#: app/templates/resources/compounds/index.html:27
+msgid "Erstellt am"
+msgstr "Created at"
+
+#: app/templates/resources/compounds/index.html:44
+#: app/templates/resources/compounds/show.html:13
+msgid "Details"
+msgstr "Details"
+
+#: app/templates/resources/compounds/show.html:15
+msgid "erstellt am"
+msgstr "created at"
+
+#: app/templates/resources/compounds/show.html:15
+msgid "von"
+msgstr "by"
+
+#: app/templates/resources/compounds/show.html:45
+msgid "Laser [nm]"
+msgstr "Laser [nm]"
+
+#: app/templates/resources/compounds/show.html:90
+msgid "Es sind noch keine Spektren für diese Substanz hinterlegt"
+msgstr "No spectra available for this substance"
+
+#: app/templates/resources/compounds/show.html:94
+msgid "Spektren hinzufügen"
+msgstr "Add spectra"
+
+#: app/templates/resources/compounds/show.html:100
+msgid "Hinterlegte Spektren"
+msgstr "Linked spectra"
+
+#: app/templates/resources/compounds/show.html:107
+#: app/templates/resources/spectra/edit.html:12
+#: app/templates/resources/spectra/new.html:12
+#: app/templates/resources/spectra/new.html:48
+msgid "Spektrum hinzufügen"
+msgstr "Add spectrum"
+
+#: app/templates/resources/compounds/show.html:116
+msgid "Peaks erstellen"
+msgstr "Create peaks"
+
+#: app/templates/resources/compounds/show.html:139
+#: app/templates/resources/spectra/edit.html:47
+#: app/templates/resources/spectra/new.html:41
+msgid "Spektrum"
+msgstr "Spectrum"
+
+#: app/templates/resources/compounds/show.html:144
+#: app/templates/resources/substrates/index.html:38
+msgid "Download"
+msgstr "Download"
+
+#: app/templates/resources/compounds/show.html:168
+msgid "Keine"
+msgstr "None"
+
+#: app/templates/resources/intensities/edit.html:19
+#: app/templates/resources/intensities/edit.html:32
+#: app/templates/resources/intensities/new.html:19
+msgid "vs"
+msgstr "vs"
+
+#: app/templates/resources/intensities/index.html:14
+msgid "Neue Intensität erstellen"
+msgstr "New intensity"
+
+#: app/templates/resources/intensities/index.html:19
+msgid "Es sind noch keine Intensitäten hinterlegt"
+msgstr "No intensities available"
+
+#: app/templates/resources/intensities/index.html:25
+msgid "Abkürzung"
+msgstr "Abbreviation"
+
+#: app/templates/resources/intensities/new.html:32
+msgid "very strong"
+msgstr "very strong"
+
+#: app/templates/resources/lasers/edit.html:12
+msgid "Laser bearbeiten"
+msgstr "Edit laser"
+
+#: app/templates/resources/lasers/index.html:15
+msgid "Neuen Laser erstellen"
+msgstr "Create new laser"
+
+#: app/templates/resources/lasers/index.html:20
+msgid "Es sind noch keine Laser hinterlegt"
+msgstr "No lasers available"
+
+#: app/templates/resources/lenses/index.html:15
+msgid "Neues Objektiv erstellen"
+msgstr "Create new lens"
+
+#: app/templates/resources/lenses/index.html:22
+msgid "Es sind noch keine Objektive hinterlegt"
+msgstr "No lenses available"
+
+#: app/templates/resources/peaks/edit.html:13
+#: app/templates/resources/peaks/new.html:13
+msgid "Peaks"
+msgstr "Peaks"
+
+#: app/templates/resources/peaks/edit.html:24
+#: app/templates/resources/peaks/new.html:23
+#: app/templates/resources/query/index.html:33
+#: app/templates/resources/ramanbands/index.html:25
+#: app/templates/resources/ramanbands/query.html:69
+msgid "Wellenzahl [cm<sup>-1</sup>]"
+msgstr "Wavenumber [cm<sup>-1</sup>]"
+
+#: app/templates/resources/preprocessing_steps/edit.html:12
+#: app/templates/resources/preprocessing_steps/new.html:12
+msgid "Vorverarbeitungsschritt"
+msgstr "Preprocessing step"
+
+#: app/templates/resources/preprocessing_steps/edit.html:18
+#: app/templates/resources/preprocessing_steps/new.html:18
+msgid "Basislinienkorrektur"
+msgstr "Baseline correction"
+
+#: app/templates/resources/preprocessing_steps/index.html:15
+msgid "Neuen Vorverarbeitungsschritt erstellen"
+msgstr "Create new preprocessing step"
+
+#: app/templates/resources/preprocessing_steps/index.html:20
+msgid "Es sind noch keine Vorverarbeitungsschritte hinterlegt"
+msgstr "No preprocessing steps available"
+
+#: app/templates/resources/query/index.html:10
+#: app/templates/resources/query/result.html:15
+msgid "Abfrage"
+msgstr "Query"
+
+#: app/templates/resources/query/index.html:15
+msgid ""
+"Geben Sie eine bzw. mehrere Wellenzahlen und einen Toleranzbereich ein, "
+"um eine Abfrage zu starten. Die angegebenen Wellenzahlen werden nicht "
+"mittels einer UND-Verknüpfung verbunden. Es werden Ergebnisse "
+"präsentiert, die mindestens eine der angegebenen Wellenzahlen enthalten."
+msgstr ""
+"Provide one or more wavenumbers and a tolerance range to start a query. "
+"The specified wavenumbers are not connected by an AND link. Results are "
+"presented that contain at least one of the specified wavenumbers."
+
+#: app/templates/resources/query/index.html:17
+msgid ""
+"Sofern mindestens ein Wellenzahl-Feld ausgefüllt ist, werden alle leeren "
+"Felder ignoriert"
+msgstr ""
+"As long as at least one wavenumber field is filled, all empty fields are "
+"ignored"
+
+#: app/templates/resources/query/index.html:27
+msgid "Toleranzbereich [cm<sup>-1</sup>]"
+msgstr "Tolerance range [cm<sup>-1</sup>]"
+
+#: app/templates/resources/query/result.html:15
+msgid "Ergebnis"
+msgstr "Result"
+
+#: app/templates/resources/query/result.html:20
+msgid "Die Abfrage führt zu"
+msgstr "The query results in"
+
+#: app/templates/resources/query/result.html:20
+msgid "Ergebnissen"
+msgstr "results"
+
+#: app/templates/resources/query/result.html:25
+msgid "Suchkriterium"
+msgstr "Search criteria"
+
+#: app/templates/resources/query/result.html:25
+msgid "cm<sup>-1</sup> bei Toleranz von <span>&#177;</span>"
+msgstr "cm<sup>-1</sup> with a tolerance of <span>&#177;</span>"
+
+#: app/templates/resources/query/result.html:26
+#: app/templates/resources/query/result.html:30
+msgid "cm<sup>-1</sup>"
+msgstr "cm<sup>-1</sup>"
+
+#: app/templates/resources/query/result.html:30
+msgid "Treffer bei:"
+msgstr "Hits at:"
+
+#: app/templates/resources/ramanband_categories/edit.html:12
+#: app/templates/resources/ramanband_categories/new.html:12
+msgid "Raman-Banden Kategorie"
+msgstr "Ramand band category"
+
+#: app/templates/resources/ramanband_categories/edit.html:18
+#: app/templates/resources/ramanband_categories/new.html:18
+msgid "Nukleinsäure"
+msgstr "Nucleic acid"
+
+#: app/templates/resources/ramanband_categories/index.html:16
+msgid "Neue Kategorie erstellen"
+msgstr "Create new category"
+
+#: app/templates/resources/ramanband_categories/index.html:21
+msgid "Es sind noch keine Kategorien hinterlegt"
+msgstr "No categories available"
+
+#: app/templates/resources/ramanbands/edit.html:12
+#: app/templates/resources/ramanbands/new.html:12
+#: app/templates/resources/ramanbands/query.html:9
+msgid "Raman-Bande"
+msgstr "Ramand band"
+
+#: app/templates/resources/ramanbands/edit.html:32
+#: app/templates/resources/ramanbands/edit.html:61
+#: app/templates/resources/ramanbands/new.html:32
+#: app/templates/resources/ramanbands/new.html:61
+msgid "CH2 Schwingung"
+msgstr "CH2 vibration"
+
+#: app/templates/resources/ramanbands/edit.html:77
+#: app/templates/resources/ramanbands/new.html:77
+msgid "Max Mustermann"
+msgstr "John Doe"
+
+#: app/templates/resources/ramanbands/index.html:10
+msgid "Raman Banden"
+msgstr "Raman bands"
+
+#: app/templates/resources/ramanbands/index.html:15
+msgid "Neue Bande erstellen"
+msgstr "Create new band"
+
+#: app/templates/resources/ramanbands/index.html:20
+msgid "Es sind noch keine Banden hinterlegt"
+msgstr "No bands available"
+
+#: app/templates/resources/ramanbands/index.html:41
+#: app/templates/resources/ramanbands/query.html:84
+msgid "Öffnen"
+msgstr "Open"
+
+#: app/templates/resources/ramanbands/query.html:9
+msgid "Suchen"
+msgstr "Search"
+
+#: app/templates/resources/ramanbands/query.html:55
+msgid "Suche starten"
+msgstr "Start search"
+
+#: app/templates/resources/ramanbands/query.html:60
+msgid "Es wurden keine Ergebnisse gefunden."
+msgstr "No results found."
+
+#: app/templates/resources/ramanbands/query.html:65
+msgid "Ergebnisse"
+msgstr "Results"
+
+#: app/templates/resources/ramanbands/query.html:72
+msgid "Author"
+msgstr "Author"
+
+#: app/templates/resources/resolutions/edit.html:12
+msgid "Auflösung bearbeiten"
+msgstr "Edit resolution"
+
+#: app/templates/resources/resolutions/index.html:15
+#: app/templates/resources/resolutions/new.html:12
+msgid "Neue Auflösung erstellen"
+msgstr "Create new resolution"
+
+#: app/templates/resources/resolutions/index.html:20
+msgid "Es sind noch keine Auflösungen hinterlegt"
+msgstr "No resolutions available"
+
+#: app/templates/resources/slides/edit.html:12
+msgid "Objektträger bearbeiten"
+msgstr "Edit microscope slide"
+
+#: app/templates/resources/slides/index.html:15
+msgid "Neuen Objektträger erstellen"
+msgstr "Create new microscope slide"
+
+#: app/templates/resources/slides/index.html:20
+msgid "Es sind noch keine Objektträger hinterlegt"
+msgstr "No microscope slides available"
+
+#: app/templates/resources/slides/new.html:18
+msgid "Calciumfluorid"
+msgstr "Calcium fluoride"
+
+#: app/templates/resources/spectra/edit.html:16
+#: app/templates/resources/spectra/new.html:16
+msgid "Welche Art von Spektrum möchten Sie hinzufügen?"
+msgstr "What kind of spectrum do you want to add?"
+
+#: app/templates/resources/spectra/edit.html:29
+#: app/templates/resources/spectra/new.html:28
+msgid "Vorverarbeitungsschritte (Auswahl)"
+msgstr "Preprocessing steps (multiple)"
+
+#: app/templates/resources/spectra/edit.html:54
+msgid "Spektrum speichern"
+msgstr "Save spectrum"
+
+#: app/templates/resources/spectra_types/edit.html:12
+#: app/templates/resources/spectra_types/new.html:12
+msgid "Spektrenart"
+msgstr "Spektrum type"
+
+#: app/templates/resources/spectra_types/edit.html:18
+#: app/templates/resources/spectra_types/new.html:18
+msgid "roh"
+msgstr "raw"
+
+#: app/templates/resources/spectra_types/index.html:14
+msgid "Neue Spektrenart erstellen"
+msgstr "Create new spectrum type"
+
+#: app/templates/resources/spectra_types/index.html:19
+msgid "Es sind noch keine Spektrenarten hinterlegt"
+msgstr "No spectrum types available"
+
+#: app/templates/resources/spectral_ranges/edit.html:18
+#: app/templates/resources/spectral_ranges/index.html:26
+#: app/templates/resources/spectral_ranges/new.html:18
+msgid "Start [cm<sup>-1</sup>]"
+msgstr "Start [cm<sup>-1</sup>]"
+
+#: app/templates/resources/spectral_ranges/edit.html:32
+#: app/templates/resources/spectral_ranges/index.html:27
+#: app/templates/resources/spectral_ranges/new.html:32
+msgid "Ende [cm<sup>-1</sup>]"
+msgstr "End [cm<sup>-1</sup>]"
+
+#: app/templates/resources/spectral_ranges/index.html:15
+msgid "Neuen Spektralbereich erstellen"
+msgstr "Create new spectral range"
+
+#: app/templates/resources/spectral_ranges/index.html:20
+msgid "Es sind noch keine Spektralbereiche hinterlegt"
+msgstr "No spectral ranges available"
+
+#: app/templates/resources/substrates/edit.html:18
+#: app/templates/resources/substrates/new.html:19
+msgid "Gold Nanopartikel"
+msgstr "Gold nano-particles"
+
+#: app/templates/resources/substrates/edit.html:33
+msgid "Herunterladen"
+msgstr "Download"
+
+#: app/templates/resources/substrates/index.html:14
+msgid "Neues Substrat erstellen"
+msgstr "Create new substrate"
+
+#: app/templates/resources/substrates/index.html:19
+msgid "Es sind noch keine Substrate hinterlegt"
+msgstr "No substrates available"
+
+#: app/templates/resources/substrates/index.html:25
+msgid "Herstellungsanleitung"
+msgstr "Instructions"
+
+#: app/templates/resources/substrates/index.html:41
+msgid "Keine Anleitung hinterlegt"
+msgstr "No instructions available"
+

@@ -1,4 +1,5 @@
 from flask import render_template, request, url_for, flash, redirect
+from flask_babel import _
 
 from app.forms.forms import SignupForm, LoginForm
 from app.routes.auth import bp
@@ -36,7 +37,7 @@ def signup_post():
     # check if the email already exists
     user = db.session.query(User).filter_by(email=form.email.data).first()
     if user:
-        flash('Diese E-Mail-Adresse ist bereits vergeben', 'danger')
+        flash(_('Diese E-Mail-Adresse ist bereits vergeben'), 'danger')
         form_ok = False
         return render_template('resources/auth/signup.html', form=form)
 
@@ -53,7 +54,7 @@ def signup_post():
     db.session.commit()
 
     # send the user to the login page
-    flash('Ihr Account wurde erfolgreich erstellt. Bitte warten Sie auf die Freischaltung durch einen Administrator.', 'success')
+    flash(_('Ihr Account wurde erfolgreich erstellt. Bitte warten Sie auf die Freischaltung durch einen Administrator.'), 'success')
     return redirect(url_for('auth.login'))
 
 
@@ -89,12 +90,12 @@ def login_post():
 
     # check if the user is allowed to login
     if user and user.active == False:
-        flash('Ihr Account wurde noch nicht freigeschaltet. Wenden Sie sich an einen Administrator.', 'danger')
+        flash(_('Ihr Account wurde noch nicht freigeschaltet. Wenden Sie sich an einen Administrator.'), 'danger')
         return render_template('resources/auth/login.html', form=form)
 
     # if the user does not exist or the password is wrong, redirect to the login page
     if not user or not check_password_hash(user.password_hash, form.password.data):
-        flash('Bitte überprüfen Sie ihre Eingaben. E-Mail und Passwort stimmen nicht überein    ', 'danger')
+        flash(_('Bitte überprüfen Sie ihre Eingaben. E-Mail und Passwort stimmen nicht überein    '), 'danger')
         return render_template('resources/auth/login.html', form=form)
 
     # if the user exists and the password is correct, log the user in

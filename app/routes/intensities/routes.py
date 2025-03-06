@@ -1,6 +1,7 @@
 import sqlalchemy.exc
 from flask import render_template, request, url_for, flash, redirect
 from flask_login import login_required
+from flask_babel import _
 
 from app.forms.forms import IntensityForm
 from app.routes.intensities import bp
@@ -8,6 +9,7 @@ from app.routes.intensities import bp
 from app.models.model import Intensity
 
 from app.extensions import db
+
 
 @bp.route('/')
 @login_required
@@ -59,7 +61,7 @@ def new_post():
             db.session.commit()
             return redirect(url_for('intensities.index'))
         except sqlalchemy.exc.IntegrityError:
-            flash('Diese Bezeichnung existiert bereits', 'danger')
+            flash(_('Diese Bezeichnung existiert bereits'), 'danger')
             return render_template('resources/intensities/new.html', form=form)
 
 
@@ -110,7 +112,7 @@ def edit_post(intensity_id):
             db.session.commit()
             return redirect(url_for('intensities.index'))
         except sqlalchemy.exc.IntegrityError:
-            flash('Diese Bezeichnung existiert bereits', 'danger')
+            flash(_('Diese Bezeichnung existiert bereits'), 'danger')
             return render_template('resources/intensities/edit.html', form=form)
 
 
@@ -132,8 +134,8 @@ def delete(intensity_id):
         db.session.commit()
         return redirect(url_for('intensities.index'))
     except sqlalchemy.exc.IntegrityError:
-        flash('Diese Intensität wird noch verwendet und kann daher nicht gelöscht werden', 'danger')
+        flash(_('Diese Intensität wird noch verwendet und kann daher nicht gelöscht werden.'), 'danger')
         return redirect(url_for('intensities.index'))
     except:
-        flash('Intensität konnte nicht gelöscht werden. Probieren Sie es später erneut', 'danger')
+        flash(_('Intensität konnte nicht gelöscht werden. Probieren Sie es später erneut.'), 'danger')
         return redirect(url_for('intensities.index'))

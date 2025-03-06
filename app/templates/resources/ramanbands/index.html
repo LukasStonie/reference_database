@@ -7,27 +7,27 @@
         {% include 'includes/errors.html' %}
         <div class="row">
             <div class="col-12 col-md-6 d-flex align-items-center justify-content-start">
-                <h1>Übersicht <b><em>Raman Banden</em></b></h1>
+                <h1>{{_('Übersicht')}} <b><em>{{ _('Raman Banden')}}</em></b></h1>
             </div>
             <div class="col-12 col-md-6 d-flex align-items-center justify-content-start justify-content-md-end">
                 <a type="button" class="btn btn-outline-success btn-sm" href="{{ url_for('ramanband.new') }}"><i
                         class="bi bi-plus-lg"></i>
-                    Neue Bande erstellen
+                    {{ _('Neue Bande erstellen')}}
                 </a>
             </div>
         </div>
         {% if bands|length<=0 %}
-            <h4>Es sind noch keine Banden hinterlegt</h4>
+            <h4>{{ _('Es sind noch keine Banden hinterlegt')}}</h4>
         {% else %}
             <table class="table table-fixed">
                 <thead>
                 <tr>
-                    <th scope="col">Wellenzahl [cm<sup>-1</sup>]</th>
-                    <th>Schwingungsart</th>
-                    <th>Kategorie</th>
-                    <th>Intensität</th>
-                    <th>DOI</th>
-                    <th>Aktionen</th>
+                    <th scope="col">{{ _('Wellenzahl [cm<sup>-1</sup>]')}}</th>
+                    <th>{{ _('Schwingungsart') }}</th>
+                    <th>{{ _('Kategorie') }}</th>
+                    <th>{{ _('Intensität')}}</th>
+                    <th>{{ _('DOI') }}</th>
+                    <th>{{ _('Aktionen') }}</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -38,15 +38,15 @@
                         <td>{{ band.bandAssignment.bandType }}</td>
                         <td>{{ band.bandAssignment.bandCategory.name }}</td>
                         <td>{{ band.bandAssignment.bandAmplitude.description }}</td>
-                        <td><a href="{{ band.bandAssignment.doiLink }}" target="_blank">Öffnen</a></td>
+                        <td><a href="{{ band.bandAssignment.doiLink }}" target="_blank">{{_('Öffnen')}}</a></td>
                         <td>
                             <a type="button" class="btn btn-outline-primary btn-sm my-1"
                                href="{{ url_for('ramanband.edit', band_id=band.id) }}"><i class="bi bi-pencil-fill"></i>
-                                Bearbeiten</a>
+                                {{ _('Bearbeiten') }}</a>
                             <a type="button" class="btn btn-outline-danger btn-sm my-1"
                                href="{{ url_for('ramanband.delete', band_id=band.id) }}"><i
                                     class="bi bi-trash-fill"></i>
-                                Löschen</a>
+                                {{ _('Löschen')}}</a>
                         </td>
                     </tr>
 

@@ -2,6 +2,7 @@ from io import BytesIO
 import sqlalchemy.exc
 from flask import render_template, request, url_for, flash, redirect, send_file
 from flask_login import login_required
+from flask_babel import _
 
 from app.forms.forms import SubstratesForm
 from app.routes.substrates import bp
@@ -66,7 +67,7 @@ def new_post():
             db.session.commit()
             return redirect(url_for('substrates.index'))
         except sqlalchemy.exc.IntegrityError:
-            flash('Diese Bezeichnung existiert bereits', 'danger')
+            flash(_('Diese Bezeichnung existiert bereits'), 'danger')
             return render_template('resources/substrates/new.html', form=form)
 
 
@@ -123,7 +124,7 @@ def edit_post(substrate_id):
             db.session.commit()
             return redirect(url_for('substrates.index'))
         except sqlalchemy.exc.IntegrityError:
-            flash('Diese Bezeichnung existiert bereits', 'danger')
+            flash(_('Diese Bezeichnung existiert bereits'), 'danger')
             db.session.rollback()
             return render_template('resources/substrates/edit.html', form=form, substrate=substrate)
 
@@ -148,13 +149,13 @@ def delete(substrate_id):
         # therefore, we use the execute function
         db.session.execute(f"DELETE FROM substrates WHERE id = :id", {"id": substrate_id})
         db.session.commit()
-        flash("Substrat wurde gelöscht", 'success')
+        flash(_("Substrat wurde gelöscht"), 'success')
         return redirect(url_for('substrates.index'))
     except sqlalchemy.exc.IntegrityError:
-        flash("Dieses Substrat wird noch verwendet und kann daher nicht gelöscht werden", 'danger')
+        flash(_("Dieses Substrat wird noch verwendet und kann daher nicht gelöscht werden"), 'danger')
         return redirect(url_for('substrates.index'))
     except:
-        flash("Substrat kann nicht gelöscht werden", 'danger')
+        flash(_("Substrat kann nicht gelöscht werden"), 'danger')
         return redirect(url_for('substrates.index'))
 
 

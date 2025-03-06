@@ -7,24 +7,24 @@
     {% include 'includes/errors.html' %}
     <div class="row">
         <div class="col-12 col-md-6 d-flex align-items-center justify-content-start">
-            <h1>Übersicht <b><em>Laser</em></b></h1>
+            <h1>{{_('Übersicht')}} <b><em>{{ _('Laser') }}</em></b></h1>
         </div>
         <div class="col-12 col-md-6 d-flex align-items-center justify-content-start justify-content-md-end">
             <a type="button" class="btn btn-outline-success btn-sm" href="{{ url_for('lasers.new') }}"><i
                     class="bi bi-plus-lg"></i>
-                Neuen Laser erstellen
+                {{ _('Neuen Laser erstellen')}}
             </a>
         </div>
     </div>
     {% if lasers|length<=0 %}
-    <h4>Es sind noch keine Laser hinterlegt</h4>
+    <h4>{{ _('Es sind noch keine Laser hinterlegt')}}</h4>
     {% else %}
 
     <table class="table">
         <thead>
         <tr>
-            <th scope="col">Wellenlänge [nm]</th>
-            <th>Aktionen</th>
+            <th scope="col">{{ _('Wellenlänge [nm]')}}</th>
+            <th>{{ _('Aktionen') }}</th>
         </tr>
         </thead>
         <tbody>
@@ -34,9 +34,9 @@
             <td>
                 <a type="button" class="btn btn-outline-primary btn-sm"
                    href="{{ url_for('lasers.edit', laser_id=laser.id) }}"><i class="bi bi-pencil-fill"></i>
-                    Bearbeiten</a>
+                    {{ _('Bearbeiten') }}</a>
                 <a type="button" class="btn btn-outline-danger btn-sm"
-                   href="{{ url_for('lasers.delete', laser_id=laser.id) }}"><i class="bi bi-trash-fill"></i> Löschen</a>
+                   href="{{ url_for('lasers.delete', laser_id=laser.id) }}"><i class="bi bi-trash-fill"></i> {{ _('Löschen')}}</a>
             </td>
         </tr>
         {% endfor %}

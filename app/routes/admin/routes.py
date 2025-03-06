@@ -1,6 +1,7 @@
 from functools import wraps
 
 from flask import render_template, request, url_for, flash, redirect
+from flask_babel import _
 from flask_login import login_required, current_user
 from werkzeug.security import generate_password_hash
 
@@ -25,7 +26,7 @@ def admin_required(f):
         if group.name == "admin":
             return f(*args, **kwargs)
         else:
-            flash("Sie haben keine Berechtigung für diese Seite.", "danger")
+            flash(_("Sie haben keine Berechtigung für diese Seite."), "danger")
             return redirect(url_for('main.index'))
 
     return wrap
@@ -64,7 +65,7 @@ def new_post():
     # check if the email already exists
     user = db.session.query(User).filter_by(email=form.email.data).first()
     if user:
-        flash('Diese E-Mail-Adresse ist bereits vergeben', 'danger')
+        flash(_('Diese E-Mail-Adresse ist bereits vergeben'), 'danger')
         form_ok = False
         return render_template('resources/auth/signup.html', form=form)
 
@@ -81,7 +82,7 @@ def new_post():
     db.session.commit()
 
     # send the user to the login page
-    flash('Der Account wurde erfolgreich erstellt.',
+    flash(_('Der Account wurde erfolgreich erstellt.'),
           'success')
     return redirect(url_for('admin.index'))
 
@@ -116,14 +117,14 @@ def activate(user_id):
     try:
         user = db.session.query(User).filter(User.id == user_id).first()
         if user.active:
-            flash('User ist bereits aktiviert', 'danger')
+            flash(_('User ist bereits aktiviert'), 'danger')
             return redirect(url_for('admin.index'))
         user.active = True
         db.session.commit()
-        flash('User wurde aktiviert', 'success')
+        flash(_('User wurde aktiviert'), 'success')
         return redirect(url_for('admin.index'))
     except:
-        flash('User konnte nicht aktiviert werden', 'danger')
+        flash(_('User konnte nicht aktiviert werden'), 'danger')
         return redirect(url_for('admin.index'))
 
 
@@ -143,17 +144,17 @@ def deactivate(user_id):
     try:
         user = db.session.query(User).filter(User.id == user_id).first()
         if not user.active:
-            flash('User ist bereits deaktiviert', 'danger')
+            flash(_('User ist bereits deaktiviert'), 'danger')
             return redirect(url_for('admin.index'))
         if user.id is current_user.id:
-            flash('Sie können sich nicht selbst deaktivieren', 'danger')
+            flash(_('Sie können sich nicht selbst deaktivieren'), 'danger')
             return redirect(url_for('admin.index'))
         user.active = False
         db.session.commit()
-        flash('User wurde deaktiviert', 'success')
+        flash(_('User wurde deaktiviert'), 'success')
         return redirect(url_for('admin.index'))
     except:
-        flash('User konnte nicht deaktiviert werden', 'danger')
+        flash(_('User konnte nicht deaktiviert werden'), 'danger')
         return redirect(url_for('admin.index'))
 
 @bp.route('/delete/<user_id>')
@@ -172,12 +173,12 @@ def delete(user_id):
     try:
         user = db.session.query(User).filter(User.id == user_id).first()
         if user.id is current_user.id:
-            flash('Sie können sich nicht selbst löschen', 'danger')
+            flash(_('Sie können sich nicht selbst löschen'), 'danger')
             return redirect(url_for('admin.index'))
         db.session.delete(user)
         db.session.commit()
-        flash('User wurde gelöscht', 'success')
+        flash(_('User wurde gelöscht'), 'success')
         return redirect(url_for('admin.index'))
     except:
-        flash('User konnte nicht gelöscht werden', 'danger')
+        flash(_('User konnte nicht gelöscht werden'), 'danger')
         return redirect(url_for('admin.index'))

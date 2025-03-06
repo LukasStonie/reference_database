@@ -531,7 +531,7 @@ class RamanBands(Base):
     wavenumber = Column(Float, nullable=False)
     bandAssignmentId = Column(Integer, ForeignKey('raman_band_assignments.id'), nullable=False)
 
-    bandAssignment = relationship("RamanBandAssignment", backref="raman_bands")
+    bandAssignment = relationship("RamanBandAssignment", backref="raman_bands", cascade="all, delete")
 
 
 class RamanBandAssignment(Base):
